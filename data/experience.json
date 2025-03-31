@@ -1,0 +1,53 @@
+[
+    {
+        "title": {
+            "it": "Junior Full Stack Developer",
+            "en": "Junior Full Stack Developer"
+        },
+        "company": "Rulex Innovation Labs",
+        "company_url": "https://www.rulex.ai/",
+        "period": {
+            "it": "08/11/2021 - Attuale",
+            "en": "Nov 2021 - Present"
+        },
+        "location": {
+            "it": "Genova, Italia",
+            "en": "Genoa, Italy"
+        },
+        "description_md_id": "exp_rulex"
+    },
+    {
+        "title": {
+            "it": "Esercitatore universitario",
+            "en": "University Exerciser"
+        },
+        "company": "Università degli Studi di Genova",
+        "company_url": "https://unige.it/it",
+        "period": {
+            "it": "20/09/2019 - 20/09/2021",
+            "en": "Sep 2019 - Sep 2021"
+        },
+        "location": {
+            "it": "Genova, Italia",
+            "en": "Genoa, Italy"
+        },
+        "description_md_id": "exp_exerciser"
+    },
+    {
+        "title": {
+            "it": "Tutor universitario",
+            "en": "University Tutor"
+        },
+        "company": "Università degli Studi di Genova",
+        "company_url": "https://unige.it/it",
+        "period": {
+            "it": "20/09/2017 - 20/09/2018",
+            "en": "Sep 2017 - Sep 2018"
+        },
+        "location": {
+            "it": "Genova, Italia",
+            "en": "Genoa, Italy"
+        },
+        "description_md_id": "exp_tutor"
+    }
+]

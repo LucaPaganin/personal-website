@@ -1,0 +1,64 @@
+[
+    {
+        "degree": {
+            "it": "Dottorato di Ricerca in Fisica e Nanoscienze",
+            "en": "PhD in Physics and Nanosciences"
+        },
+        "institution": "Università degli Studi di Genova",
+        "period": {
+            "it": "31/10/2018 - 31/10/2021",
+            "en": "Oct 2018 - Oct 2021"
+        },
+        "thesis_title": {
+            "it": "Improving the Euclid performances: from spectroscopic simulations to the 6x2pt statistics",
+            "en": "Improving the Euclid performances: from spectroscopic simulations to the 6x2pt statistics"
+        },
+        "thesis_link": "http://hdl.handle.net/11567/1064238",
+        "description": {
+            "it": "Lavoro all'interno della collaborazione Euclid (ESA), missione spaziale per indagare dark energy e dark matter. Mi sono occupato di aspetti tecnici (simulazioni immagini NISP) e teorici (previsioni sulla sensibilità di Euclid alla misura di parametri cosmologici). Sviluppate competenze in Python, IDEs, Git, UNIX, Bash, Docker.",
+            "en": "Worked within the Euclid collaboration (ESA), a space mission to investigate dark energy and dark matter. Handled technical aspects (NISP image simulations) and theoretical ones (forecasts on Euclid's sensitivity to cosmological parameters). Developed skills in Python, IDEs, Git, UNIX, Bash, Docker."
+        }
+    },
+    {
+        "degree": {
+            "it": "Laurea Magistrale in Fisica",
+            "en": "Master's Degree in Physics"
+        },
+        "institution": "Università degli Studi di Genova",
+        "period": {
+            "it": "22/09/2016 - 24/10/2018",
+            "en": "Sep 2016 - Oct 2018"
+        },
+        "grade": {
+            "it": "110/110 e lode",
+            "en": "110/110 cum laude"
+        },
+        "thesis_title": {
+            "it": "Gravitational effects on the metastability of the Universe ground state",
+            "en": "Gravitational effects on the metastability of the Universe ground state"
+        },
+        "description": {
+            "it": "Studio della metastabilità dello stato fondamentale del Modello Standard, includendo effetti gravitazionali oltre la Relatività Generale di Einstein, ad esempio in uno spaziotempo di Robertson-Walker.",
+            "en": "Study of the metastability of the Standard Model ground state, including gravitational effects beyond Einstein's General Relativity, for example in a Robertson-Walker spacetime."
+        }
+    },
+    {
+        "degree": {
+            "it": "Laurea Triennale in Fisica",
+            "en": "Bachelor's Degree in Physics"
+        },
+        "institution": "Università degli Studi di Genova",
+        "period": {
+            "it": "22/09/2013 - 27/09/2016",
+            "en": "Sep 2013 - Sep 2016"
+        },
+        "grade": {
+            "it": "110/110 e lode",
+            "en": "110/110 cum laude"
+        },
+        "thesis_title": {
+            "it": "The tunnel effect in the context of the alpha decay",
+            "en": "The tunnel effect in the context of the alpha decay"
+        }
+    }
+]

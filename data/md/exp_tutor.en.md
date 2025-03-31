@@ -1,0 +1,1 @@
+I held a didactic tutoring position for General Physics, Mathematical Analysis, and Linear Algebra for first-year students of the Physics and Mathematics degree courses at the University of Genoa. During this assignment, I was able to improve my communication and relational skills thanks to the interaction with the students.

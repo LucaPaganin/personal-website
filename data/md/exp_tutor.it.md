@@ -1,0 +1,1 @@
+Ho svolto un incarico di tutorato didattico per Fisica Generale, Analisi Matematica e Algebra Lineare per gli studenti del primo anno dei Corsi di Laurea in Fisica e Matematica dell'Università di Genova. Durante lo svolgimento di questo incarico ho potuto migliorare le mie capacità comunicative e relazionali grazie al rapporto con gli studenti.

@@ -1,166 +1,181 @@
 import os
 import json
+import markdown
+import datetime
 from flask import Flask, render_template, request, session, redirect, url_for, g
-from flask_babel import Babel, _ # _ è ancora usato per le stringhe UI nei template
+from flask_babel import Babel, _
 
-# --- Configurazione App ---
-app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(24) # Chiave segreta per la sessione
-app.config['BABEL_DEFAULT_LOCALE'] = 'it' # Lingua predefinita
-app.config['BABEL_DEFAULT_TIMEZONE'] = 'Europe/Rome' # Fuso orario predefinito
-app.config['LANGUAGES'] = { # Lingue supportate
-    'en': 'English',
-    'it': 'Italiano'
-}
-babel = Babel(app) # Inizializza Babel
-
-# --- Caricamento Dati CV da JSON ---
-# Definisce il percorso della cartella 'data'
-DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
-
-def load_json_data(filename):
-    """Carica dati da un file JSON nella cartella data."""
-    filepath = os.path.join(DATA_DIR, filename)
-    try:
-        # Apre e legge il file JSON specificato
-        with open(filepath, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        # Gestisce il caso in cui il file non esista
-        print(f"Errore: File non trovato - {filepath}")
-        return None
-    except json.JSONDecodeError:
-        # Gestisce il caso in cui il JSON sia malformato
-        print(f"Errore: Formato JSON non valido - {filepath}")
-        return None
-    except Exception as e:
-        # Gestisce altri errori imprevisti durante il caricamento
-        print(f"Errore sconosciuto durante il caricamento di {filepath}: {e}")
-        return None
-
-def load_all_cv_data():
-    """Carica tutti i dati del CV dai rispettivi file JSON."""
-    all_data = {}
-    # Mappa le chiavi dati ai nomi dei file JSON
-    data_files = {
-        'personal_info': 'personal_info.json',
-        'about_me': 'about_me.json',
-        'experience': 'experience.json',
-        'education': 'education.json',
-        'phd_details': 'phd_details.json',
-        'skills': 'skills.json',
-        'conferences': 'conferences.json',
-        'publications': 'publications.json',
-        'projects': 'projects.json',
-        'certifications': 'certifications.json'
-    }
-    # Itera su ogni file definito, lo carica e lo aggiunge al dizionario principale
-    for key, filename in data_files.items():
-        data = load_json_data(filename)
-        if data is not None:
-            all_data[key] = data
-        else:
-            # Se un file non viene caricato, imposta un valore di default e stampa un avviso
-            all_data[key] = {} if key not in ['experience', 'education', 'conferences', 'publications', 'projects'] else []
-            print(f"Attenzione: Dati per '{key}' non caricati correttamente.")
-    return all_data
-
-# Carica tutti i dati una sola volta all'avvio dell'applicazione
-cv_data_loaded = load_all_cv_data()
-
-# --- Funzioni Babel ---
-@babel.localeselector
+# --- Funzione Locale Selector (definita prima dell'app) ---
 def get_locale():
     """Determina la lingua da usare per la richiesta corrente."""
     if 'language' in session:
         return session['language']
-    return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    if request:
+        # Match against configured languages
+        return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    # Fallback if no request context or no match
+    return app.config['BABEL_DEFAULT_LOCALE']
 
+
+# --- Configurazione App ---
+app = Flask(__name__)
+app.config['SECRET_KEY'] = os.urandom(24)
+app.config['BABEL_DEFAULT_LOCALE'] = 'it'
+app.config['BABEL_DEFAULT_TIMEZONE'] = 'Europe/Rome'
+app.config['LANGUAGES'] = {
+    'en': 'English',
+    'it': 'Italiano'
+}
+
+# --- Inizializzazione Babel ---
+babel = Babel(app)
+babel.init_app(app, locale_selector=get_locale)
+
+
+# --- Percorsi Dati ---
+DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+MD_DATA_DIR = os.path.join(DATA_DIR, 'md')
+
+# --- Caricamento Dati Strutturali da JSON ---
+def load_json_data(filename):
+    """Carica dati da un file JSON nella cartella data principale."""
+    filepath = os.path.join(DATA_DIR, filename)
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"Errore: File JSON non trovato - {filepath}")
+        return None
+    except json.JSONDecodeError:
+        print(f"Errore: Formato JSON non valido - {filepath}")
+        return None
+    except Exception as e:
+        print(f"Errore sconosciuto durante il caricamento di {filepath}: {e}")
+        return None
+
+def load_all_structural_data():
+    """Carica i dati strutturali dai file JSON."""
+    all_data = {}
+    # Lista aggiornata dei file JSON necessari
+    json_files = {
+        'personal_info': 'personal_info.json',
+        'experience': 'experience.json',
+        'education': 'education.json', # Contiene la struttura per formazione e ID MD
+        'phd_details': 'phd_details.json', # Contiene struttura PhD e ID MD
+        'skills': 'skills.json', # Contiene struttura competenze
+        'conferences': 'conferences.json', # Contiene lista conferenze
+        'publications': 'publications.json', # Contiene lista pubblicazioni (senza abstract)
+        'projects': 'projects.json', # Contiene lista progetti (senza descrizioni)
+        'certifications': 'certifications.json' # Contiene struttura certificazioni
+    }
+    for key, filename in json_files.items():
+        data = load_json_data(filename)
+        if data is not None:
+            all_data[key] = data
+        else:
+            # Imposta default appropriato se caricamento fallisce
+            default_value = [] if key in ['experience', 'education', 'conferences', 'publications', 'projects'] else {}
+            all_data[key] = default_value
+            print(f"Attenzione: Dati strutturali per '{key}' non caricati correttamente.")
+    return all_data
+
+structural_data_loaded = load_all_structural_data()
+
+# --- Funzioni Pre-Richiesta ---
 @app.before_request
 def before_request():
     """Eseguito prima di ogni richiesta."""
-    # Imposta la lingua corrente e i dati caricati nel contesto globale 'g'
     g.locale = str(get_locale())
-    g.cv_data = cv_data_loaded # Rende i dati accessibili nei template tramite 'g.cv_data'
+    g.structural_data = structural_data_loaded
 
-# --- Helper per Localizzazione Contenuto ---
+# --- Context Processors ---
 @app.context_processor
-def inject_localization_helper():
-    """Rende la funzione get_localized disponibile in tutti i template."""
+def inject_current_time():
+    """Rende disponibile l'oggetto datetime corrente ai template."""
+    return {'now': datetime.datetime.now()}
+
+@app.context_processor
+def inject_content_helpers():
+    """Rende disponibili gli helper get_localized e render_md_localized nei template."""
     def get_localized(content_dict):
-        """
-        Restituisce il valore per la lingua corrente (g.locale)
-        da un dizionario {'it': '...', 'en': '...'}.
-        Include fallback alla lingua di default se la traduzione manca.
-        """
+        """Restituisce il valore per g.locale da un dizionario JSON."""
         if isinstance(content_dict, dict):
-            # Prova a ottenere il testo nella lingua corrente
             localized_text = content_dict.get(g.locale)
-            if localized_text is not None: # Controlla anche stringhe vuote
-                return localized_text
-
-            # Fallback: prova la lingua di default dell'app
+            if localized_text is not None: return localized_text
             default_locale = app.config.get('BABEL_DEFAULT_LOCALE', 'en')
-            if g.locale != default_locale: # Evita controllo ridondante se locale è già default
+            if g.locale != default_locale:
                 fallback_text = content_dict.get(default_locale)
-                if fallback_text is not None:
-                     # Stampa un avviso se si usa il fallback (utile per debug)
-                    print(f"Warning: Missing translation for locale '{g.locale}'. Using default '{default_locale}'. Content: {list(content_dict.values())[0][:50]}...")
-                    return fallback_text
-
-            # Fallback estremo: restituisci il primo valore trovato o stringa vuota
-            if content_dict:
-                return list(content_dict.values())[0]
-            else:
-                return "" # Dizionario vuoto
-        # Se l'input non è un dizionario, restituiscilo (potrebbe essere stringa, numero, None)
+                if fallback_text is not None: return fallback_text
+            if content_dict: return list(content_dict.values())[0]
+            else: return ""
         return content_dict
 
-    # Rende la funzione disponibile nei template con il nome 'get_localized'
-    return dict(get_localized=get_localized)
+    def render_md_localized(md_id):
+        """Carica e converte il file Markdown corretto da data/md/."""
+        html_content = None
+        default_locale = app.config.get('BABEL_DEFAULT_LOCALE', 'en')
+        md_filename = f"{md_id}.{g.locale}.md"
+        filepath = os.path.join(MD_DATA_DIR, md_filename)
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                md_content = f.read()
+                html_content = markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
+        except FileNotFoundError:
+            if g.locale != default_locale:
+                md_filename_fallback = f"{md_id}.{default_locale}.md"
+                filepath_fallback = os.path.join(MD_DATA_DIR, md_filename_fallback)
+                try:
+                    with open(filepath_fallback, 'r', encoding='utf-8') as f:
+                        md_content_fallback = f.read()
+                        html_content = markdown.markdown(md_content_fallback, extensions=['fenced_code', 'tables'])
+                        print(f"Warning (render_md_localized): File '{filepath}' not found. Using default '{filepath_fallback}'.")
+                except FileNotFoundError:
+                    print(f"Error (render_md_localized): Markdown file not found for id '{md_id}' in '{MD_DATA_DIR}' for locale '{g.locale}' or default '{default_locale}'.")
+                    html_content = f"<p><i>Error: Content '{md_id}' not found.</i></p>"
+            else:
+                 print(f"Error (render_md_localized): Markdown file not found for id '{md_id}' in '{MD_DATA_DIR}' for locale '{g.locale}'.")
+                 html_content = f"<p><i>Error: Content '{md_id}' not found.</i></p>"
+        except Exception as e:
+            print(f"Error processing markdown file {filepath}: {e}")
+            html_content = f"<p><i>Error processing content '{md_id}'.</i></p>"
+        return html_content if html_content is not None else ""
 
-# --- Route ---
-# Le route usano g.cv_data (accessibile nei template)
+    return dict(
+        get_localized=get_localized,
+        render_md_localized=render_md_localized
+    )
+
+# --- Route Aggiornate ---
 @app.route('/')
 def index():
-    return render_template('index.html') # Non serve passare 'data' esplicitamente
-
-@app.route('/education')
-def education():
-    return render_template('education.html')
-
-@app.route('/phd')
-def phd():
-    return render_template('phd.html')
+    # Pagina principale (Su di me)
+    return render_template('index.html')
 
 @app.route('/experience')
 def experience():
+    # Pagina Esperienza Lavorativa
     return render_template('experience.html')
 
-@app.route('/skills')
-def skills():
-    return render_template('skills.html')
+@app.route('/formazione') # Nuova route per Formazione + Dottorato
+def formazione():
+    return render_template('formazione.html')
 
-@app.route('/conferences')
-def conferences():
-    return render_template('conferences.html')
+@app.route('/competenze') # Nuova route per Competenze + Certificazioni
+def competenze():
+    return render_template('competenze.html')
 
-@app.route('/publications')
-def publications():
-    return render_template('publications.html')
+@app.route('/ricerca') # Nuova route per Pubblicazioni + Conferenze
+def ricerca():
+    return render_template('ricerca.html')
 
 @app.route('/projects')
 def projects():
+    # Pagina Progetti
     return render_template('projects.html')
 
-@app.route('/certifications')
-def certifications():
-    return render_template('certifications.html')
-
-
+# Route per cambio lingua (invariata)
 @app.route('/language/<language>')
 def set_language(language=None):
-    """Imposta la lingua scelta nella sessione e ricarica la pagina."""
     if language in app.config['LANGUAGES']:
         session['language'] = language
     referrer = request.referrer
@@ -173,5 +188,4 @@ def set_language(language=None):
 
 # --- Avvio App ---
 if __name__ == '__main__':
-    # debug=True è utile in sviluppo, disattivalo in produzione
     app.run(debug=True)

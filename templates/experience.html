@@ -1,21 +1,18 @@
 {% extends "base.html" %}
-{# Titolo pagina: Nome + Stringa UI tradotta da Babel #}
-{% block title %}{{ g.cv_data.personal_info.name }} - {{ _('Esperienza Lavorativa') }}{% endblock %}
+{% block title %}{{ g.structural_data.personal_info.name }} - {{ _('Esperienza Lavorativa') }}{% endblock %} {# Usa g.structural_data. #}
 
 {% block content %}
 <div class="bg-white p-8 rounded-lg shadow-md">
-    {# Titolo sezione, tradotto da Babel #}
     <h1 class="text-3xl font-bold mb-6 text-gray-800">{{ _('Esperienza Lavorativa') }}</h1>
 
     <div class="space-y-8">
-        {# Itera sulla lista 'experience' caricata da JSON #}
-        {% for job in g.cv_data.experience %}
+        {# Itera sulla lista 'experience' da JSON strutturale #}
+        {% for job in g.structural_data.experience %}
             <div class="border-l-4 border-green-500 pl-4 py-2">
-                {# Titolo del lavoro, localizzato da JSON #}
+                {# Titolo, Periodo, Luogo: usano get_localized dai dati JSON #}
                 <h2 class="text-xl font-semibold text-gray-800">
                     {{ get_localized(job.title) }}
                 </h2>
-                {# Azienda (con link se presente) e Luogo (localizzato da JSON) #}
                 <p class="text-md font-medium text-gray-700">
                     {% if job.company_url %}
                         <a href="{{ job.company_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">{{ job.company }}</a>
@@ -24,14 +21,13 @@
                     {% endif %}
                      - {{ get_localized(job.location) }}
                 </p>
-                {# Periodo, localizzato da JSON #}
                 <p class="text-sm text-gray-500">
                     {{ get_localized(job.period) }}
                 </p>
-                {# Descrizione, localizzata da JSON #}
-                <p class="mt-2 text-gray-700 text-base">
-                    {{ get_localized(job.description) | safe }} {# Usa 'safe' se contiene HTML #}
-                </p>
+                {# Descrizione: usa render_md_localized con l'ID dal JSON #}
+                <div class="mt-2 text-gray-700 text-base prose max-w-none"> {# Aggiunta classe prose per stile MD #}
+                    {{ render_md_localized(job.description_md_id) | safe }}
+                </div>
             </div>
         {% endfor %}
     </div>

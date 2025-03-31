@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ g.structural_data.personal_info.name }} - {{ _('Ricerca: Pubblicazioni e Conferenze') }}{% endblock %}
+
+{% block content %}
+<div class="bg-white p-8 rounded-lg shadow-md space-y-12">
+
+    {# --- Sezione Pubblicazioni --- #}
+    <section>
+        <h1 class="text-3xl font-bold mb-6 text-gray-800">{{ _('Pubblicazioni') }}</h1>
+
+        <div class="space-y-6">
+            {% for pub in g.structural_data.publications %}
+                <article class="border-b border-gray-200 pb-4">
+                    <h2 class="text-xl font-semibold text-gray-800">{{ pub.title }}</h2>
+                    <p class="text-sm text-gray-500 mt-1">{{ _('Autori:') }} {{ pub.authors }} ({{ pub.year }})</p>
+                    {% if pub.status %}
+                         <p class="text-sm text-orange-600 italic mt-1">
+                             {{ get_localized(pub.status) }}
+                         </p>
+                    {% endif %}
+                    {% if pub.link %}
+                        <a href="{{ pub.link }}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline mt-1 inline-block">{{ _('Link alla pubblicazione/progetto') }}</a>
+                    {% endif %}
+                </article>
+            {% else %}
+                 <p class="text-gray-600">{{ _('Nessuna pubblicazione elencata.') }}</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# --- Sezione Conferenze e Seminari --- #}
+    <section>
+        <h1 class="text-3xl font-bold mb-6 text-gray-800 border-t pt-8 mt-8">{{ _('Conferenze e Seminari') }}</h1>
+
+        <ul class="space-y-4">
+            {% for conf in g.structural_data.conferences %}
+                <li class="border-b border-gray-200 pb-3">
+                    <h2 class="text-lg font-semibold text-gray-800">{{ conf.name }}</h2>
+                    <p class="text-sm text-gray-600">{{ conf.location }} - {{ conf.date }}</p>
+                    {% if conf.link %}
+                        <a href="{{ conf.link }}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:underline">{{ _('Sito web/Link') }}</a>
+                    {% endif %}
+                </li>
+            {% else %}
+                 <p class="text-gray-600">{{ _('Nessuna conferenza elencata.') }}</p>
+            {% endfor %}
+        </ul>
+    </section>
+
+</div>
+{% endblock %}
