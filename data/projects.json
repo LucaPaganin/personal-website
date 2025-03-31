@@ -1,10 +1,10 @@
 [
     {
-        "name": "SEYFERT: Survey Fisher Forecast Tool",
-        "github_link": "#" 
+        "name": "SEYFERT: the SurvEY FishEr foRecast Tool",
+        "github_link": "https://github.com/LucaPaganin/SEYFERT" 
     },
     {
         "name": "Solar System Simulator",
-        "github_link": "#"
+        "github_link": "https://github.com/LucaPaganin/SolarSystem/"
     }
 ]

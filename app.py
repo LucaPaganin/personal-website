@@ -60,9 +60,9 @@ def load_all_structural_data():
     json_files = {
         'personal_info': 'personal_info.json',
         'experience': 'experience.json',
-        'education': 'education.json', # Contiene la struttura per formazione e ID MD
+        'education': 'education.json', # Contiene la struttura per education e ID MD
         'phd_details': 'phd_details.json', # Contiene struttura PhD e ID MD
-        'skills': 'skills.json', # Contiene struttura competenze
+        'skills': 'skills.json', # Contiene struttura skills
         'conferences': 'conferences.json', # Contiene lista conferenze
         'publications': 'publications.json', # Contiene lista pubblicazioni (senza abstract)
         'projects': 'projects.json', # Contiene lista progetti (senza descrizioni)
@@ -156,13 +156,13 @@ def experience():
     # Pagina Esperienza Lavorativa
     return render_template('experience.html')
 
-@app.route('/formazione') # Nuova route per Formazione + Dottorato
-def formazione():
-    return render_template('formazione.html')
+@app.route('/education') # Nuova route per education + Dottorato
+def education():
+    return render_template('education.html')
 
-@app.route('/competenze') # Nuova route per Competenze + Certificazioni
-def competenze():
-    return render_template('competenze.html')
+@app.route('/skills') # Nuova route per skills + Certificazioni
+def skills():
+    return render_template('skills.html')
 
 @app.route('/ricerca') # Nuova route per Pubblicazioni + Conferenze
 def ricerca():
