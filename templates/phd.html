@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{# Titolo pagina: Nome + Stringa UI tradotta da Babel #}
+{% block title %}{{ g.cv_data.personal_info.name }} - {{ _('Dottorato') }}{% endblock %}
+
+{% block content %}
+<div class="bg-white p-8 rounded-lg shadow-md">
+    {# Titolo sezione, localizzato da JSON #}
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">
+         {{ get_localized(g.cv_data.phd_details.title) }}
+    </h1>
+
+    <div class="space-y-4 text-gray-700 leading-relaxed">
+         {# Descrizione dettagliata, localizzata da JSON #}
+         <p>
+             {{ get_localized(g.cv_data.phd_details.description) | safe }} {# Usa 'safe' se contiene HTML #}
+         </p>
+         {# Titolo e link tesi #}
+         <p>
+             {# Stringa UI 'Tesi:', tradotta da Babel #}
+             <strong>{{ _('Tesi:') }}</strong> {{ get_localized(g.cv_data.phd_details.thesis_title) }}
+             {% if g.cv_data.phd_details.thesis_link %}
+                 {# Stringa UI 'link alla tesi', tradotta da Babel #}
+                 (<a href="{{ g.cv_data.phd_details.thesis_link }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{{ _('link alla tesi') }}</a>)
+             {% endif %}
+         </p>
+
+         {# Puoi aggiungere qui altri dettagli specifici del dottorato se necessario, localizzandoli #}
+    </div>
+</div>
+{% endblock %}

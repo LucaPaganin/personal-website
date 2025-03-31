@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{# Titolo pagina: Nome + Stringa UI tradotta da Babel #}
+{% block title %}{{ g.cv_data.personal_info.name }} - {{ _('Progetti') }}{% endblock %}
+
+{% block content %}
+<div class="bg-white p-8 rounded-lg shadow-md">
+    {# Titolo sezione, tradotto da Babel #}
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">{{ _('Progetti Personali e Open Source') }}</h1>
+
+    <div class="space-y-8">
+        {# Itera sulla lista 'projects' da JSON #}
+        {% for project in g.cv_data.projects %}
+            <div class="border-l-4 border-purple-500 pl-4 py-2">
+                {# Nome progetto (non multilingua nel JSON attuale) #}
+                <h2 class="text-xl font-semibold text-gray-800">{{ project.name }}</h2>
+                 {# Descrizione progetto, localizzata da JSON #}
+                 <p class="mt-1 text-gray-700">
+                     {{ get_localized(project.description) }}
+                 </p>
+                 {# Link GitHub, se presente e valido #}
+                 {% if project.github_link and project.github_link != '#' %}
+                     {# Stringa UI 'Vedi su GitHub', tradotta da Babel #}
+                     <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 bg-gray-700 hover:bg-gray-800 text-white text-sm font-medium py-1 px-3 rounded-md transition duration-150 ease-in-out">
+                         {{ _('Vedi su GitHub') }}
+                     </a>
+                 {% else %}
+                      {# Stringa UI statica, tradotta da Babel #}
+                      <p class="text-sm text-gray-500 mt-2 italic">{{ _('Link GitHub non disponibile.') }}</p>
+                 {% endif %}
+
+                 {# Aggiungere qui eventuali link a demo live o altre risorse #}
+            </div>
+        {% else %}
+             {# Stringa UI statica, tradotta da Babel #}
+             <p class="text-gray-600">{{ _('Nessun progetto elencato.') }}</p>
+        {% endfor %}
+    </div>
+
+    {# Link generico a GitHub #}
+    <p class="mt-8 text-gray-600">
+        {# Stringa UI, tradotta da Babel #}
+        {{ _('Puoi trovare altri miei progetti sul mio profilo') }} <a href="{{ g.cv_data.personal_info.github_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">GitHub</a>.
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,106 @@
+# --- Ambienti Virtuali ---
+# Ignora la directory dell'ambiente virtuale standard
+venv/
+.venv/
+env/
+ENV/
+# File di configurazione dell'ambiente (spesso contengono segreti)
+.env
+.flaskenv
+
+# --- File Bytecode e Cache Python ---
+# File compilati (bytecode)
+*.pyc
+# Directory cache di Python
+__pycache__/
+# Cache di mypy (type checking)
+.mypy_cache/
+# Cache di pytest
+.pytest_cache/
+# Cache di Ruff (linter/formatter)
+.ruff_cache/
+
+# --- File di Distribuzione/Build ---
+# Directory di build
+build/
+# Directory di distribuzione
+dist/
+# File generati da setuptools
+*.egg-info/
+*.egg
+# File Wheel
+*.whl
+
+# --- File Specifici di Flask ---
+# Directory 'instance' (spesso usata per configurazioni locali o DB)
+instance/
+# Database SQLite (se non vuoi versionarlo)
+*.db
+*.sqlite
+*.sqlite3
+# File di sessione lato server (se usati)
+.webassets-cache/
+flask_session/
+
+# --- File Specifici di Flask-Babel ---
+# File delle traduzioni compilate (generati da .po)
+*.mo
+# File POT (template delle traduzioni estratte)
+# Solitamente è meglio rigenerarlo dal codice sorgente.
+# Se preferisci versionarlo, commenta la riga seguente.
+# *.pot
+
+# --- File Specifici di Flask-Migrate (se usato) ---
+# Directory delle migrazioni (contiene lo storico, solitamente VA versionata)
+# NON ignorare 'migrations/' a meno di casi specifici.
+# Se hai un DB di test separato per le migrazioni, ignora quello:
+# test_migrations.db
+
+# --- Report di Test e Coverage ---
+# Report di coverage
+.coverage
+coverage.xml
+htmlcov/
+# Report di test
+nosetests.xml
+pytest.xml
+
+# --- File Specifici di IDE/Editor ---
+# JetBrains (PyCharm, IntelliJ, etc.)
+.idea/
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+# Atom
+.atom/
+# Vim
+*.swp
+*.swo
+*~
+
+# --- File Specifici del Sistema Operativo ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Icon?
+#._*
+#.Spotlight-V100
+#.Trashes
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# $RECYCLE.BIN/
+
+# --- Log Files ---
+*.log
+logs/
+
+# --- Altri File Generati ---
+# File di configurazione locali (se usati)
+local_settings.py
+
+# --- File Statici Generati (se applicabile) ---
+# Ad esempio, se usi un bundler come Webpack o Parcel
+# /app/static/dist/
