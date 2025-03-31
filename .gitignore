@@ -1,3 +1,7 @@
+# File generati da Flask-Babel
+messages.pot
+*.mo
+
 # --- Ambienti Virtuali ---
 # Ignora la directory dell'ambiente virtuale standard
 venv/

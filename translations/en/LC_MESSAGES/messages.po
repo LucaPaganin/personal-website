@@ -1,0 +1,195 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-31 22:34+0200\n"
+"PO-Revision-Date: 2025-03-31 22:31+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:11
+msgid "Sito Personale"
+msgstr ""
+
+#: templates/base.html:53 templates/base.html:146 templates/index.html:2
+#: templates/index.html:6
+msgid "Su di me"
+msgstr ""
+
+#: templates/base.html:60 templates/base.html:155
+msgid "Esperienza"
+msgstr ""
+
+#: templates/base.html:67 templates/base.html:164
+msgid "Formazione"
+msgstr ""
+
+#: templates/base.html:74
+msgid "skills"
+msgstr ""
+
+#: templates/base.html:81 templates/base.html:182
+msgid "Ricerca"
+msgstr ""
+
+#: templates/base.html:88 templates/base.html:191 templates/projects.html:3
+msgid "Progetti"
+msgstr ""
+
+#: templates/base.html:173 templates/skills.html:9
+msgid "Competenze"
+msgstr ""
+
+#: templates/base.html:206
+msgid "Tutti i diritti riservati."
+msgstr ""
+
+#: templates/education.html:2
+msgid "Formazione e Dottorato"
+msgstr ""
+
+#: templates/education.html:9
+msgid "Formazione Accademica"
+msgstr ""
+
+#: templates/education.html:26
+msgid "Voto Finale:"
+msgstr ""
+
+#: templates/education.html:31 templates/education.html:62
+msgid "Tesi:"
+msgstr ""
+
+#: templates/education.html:33
+msgid "link"
+msgstr ""
+
+#: templates/education.html:64
+msgid "link alla tesi"
+msgstr ""
+
+#: templates/experience.html:2 templates/experience.html:6
+msgid "Esperienza Lavorativa"
+msgstr ""
+
+#: templates/index.html:9
+msgid "Foto Profilo"
+msgstr ""
+
+#: templates/index.html:12
+msgid "Immagine"
+msgstr ""
+
+#: templates/index.html:23
+msgid "Contatti"
+msgstr ""
+
+#: templates/index.html:29
+msgid "Profilo LinkedIn"
+msgstr ""
+
+#: templates/index.html:32
+msgid "Profilo GitHub"
+msgstr ""
+
+#: templates/projects.html:8
+msgid "Progetti Personali e Open Source"
+msgstr ""
+
+#: templates/projects.html:22
+msgid "Vedi su GitHub"
+msgstr ""
+
+#: templates/projects.html:25
+msgid "Link GitHub non disponibile."
+msgstr ""
+
+#: templates/projects.html:32
+msgid "Nessun progetto elencato."
+msgstr ""
+
+#: templates/projects.html:38
+msgid "Puoi trovare altri miei progetti sul mio profilo"
+msgstr ""
+
+#: templates/ricerca.html:2
+msgid "Ricerca: Pubblicazioni e Conferenze"
+msgstr ""
+
+#: templates/ricerca.html:9
+msgid "Pubblicazioni"
+msgstr ""
+
+#: templates/ricerca.html:15
+msgid "Autori:"
+msgstr ""
+
+#: templates/ricerca.html:22
+msgid "Link alla pubblicazione/progetto"
+msgstr ""
+
+#: templates/ricerca.html:26
+msgid "Nessuna pubblicazione elencata."
+msgstr ""
+
+#: templates/ricerca.html:33
+msgid "Conferenze e Seminari"
+msgstr ""
+
+#: templates/ricerca.html:41
+msgid "Sito web/Link"
+msgstr ""
+
+#: templates/ricerca.html:45
+msgid "Nessuna conferenza elencata."
+msgstr ""
+
+#: templates/skills.html:2
+msgid "Competenze e Certificazioni"
+msgstr ""
+
+#: templates/skills.html:13
+msgid "Competenze Linguistiche"
+msgstr ""
+
+#: templates/skills.html:26
+msgid "Competenze Digitali"
+msgstr ""
+
+#: templates/skills.html:46
+msgid "Certificazioni"
+msgstr ""
+
+#: templates/skills.html:70
+msgid "Nessuna certificazione universitaria elencata."
+msgstr ""
+
+#: templates/skills.html:73
+msgid ""
+"Nota: i file PDF devono essere aggiunti manualmente nella cartella "
+"`static/certs` (o simile) e i link aggiornati nel file "
+"`data/certifications.json`."
+msgstr ""
+
+#: templates/skills.html:98
+msgid "Nessuna certificazione aggiuntiva elencata."
+msgstr ""
+
+#: templates/skills.html:101
+msgid ""
+"Nota: i file PDF devono essere aggiunti manually nella cartella "
+"`static/certs` (o simile) e i link aggiornati nel file "
+"`data/certifications.json`."
+msgstr ""
+

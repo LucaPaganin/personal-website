@@ -4,8 +4,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ g.structural_data.personal_info.meta_description }}" />
+    <meta name="keywords" content="{{ g.structural_data.personal_info.meta_keywords }}" />
     <title>
-      {% block title %}{{ g.structural_data.personal_info.name }}{% endblock %}
+      {% block title %}{{ g.structural_data.personal_info.name }}{% endblock title %}
     - {{ _("Sito Personale") }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -201,7 +203,7 @@
     <footer class="bg-gray-800 text-white mt-12">
       <div class="container mx-auto px-6 py-4 text-center text-sm">
         <p>
-          &copy; {{ now.year }} {{ g.structural_data.personal_info.name }}. {{ _("Tutti i diritti riservati.") }}
+          © {{ now.year }} {{ g.structural_data.personal_info.name }}. {{ _("Tutti i diritti riservati.") }}
         </p>
         <div class="mt-2">
           <a href="mailto:{{ g.structural_data.personal_info.email }}" class="hover:text-blue-400">{{
