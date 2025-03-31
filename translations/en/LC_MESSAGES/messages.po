@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-03-31 22:34+0200\n"
+"POT-Creation-Date: 2025-03-31 23:04+0200\n"
 "PO-Revision-Date: 2025-03-31 22:31+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,178 +18,157 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: templates/base.html:11
+#: templates/base.html:13
 msgid "Sito Personale"
-msgstr ""
+msgstr "Personal Website"
 
-#: templates/base.html:53 templates/base.html:146 templates/index.html:2
+#: templates/base.html:55 templates/base.html:148 templates/index.html:2
 #: templates/index.html:6
 msgid "Su di me"
-msgstr ""
+msgstr "About Me"
 
-#: templates/base.html:60 templates/base.html:155
+#: templates/base.html:62 templates/base.html:157
 msgid "Esperienza"
-msgstr ""
+msgstr "Experience"
 
-#: templates/base.html:67 templates/base.html:164
+#: templates/base.html:69 templates/base.html:166
 msgid "Formazione"
-msgstr ""
+msgstr "Education"
 
-#: templates/base.html:74
-msgid "skills"
-msgstr ""
-
-#: templates/base.html:81 templates/base.html:182
-msgid "Ricerca"
-msgstr ""
-
-#: templates/base.html:88 templates/base.html:191 templates/projects.html:3
-msgid "Progetti"
-msgstr ""
-
-#: templates/base.html:173 templates/skills.html:9
+#: templates/base.html:76 templates/base.html:175 templates/skills.html:9
 msgid "Competenze"
-msgstr ""
+msgstr "Skills"
 
-#: templates/base.html:206
+#: templates/base.html:83 templates/base.html:184
+msgid "Ricerca"
+msgstr "Research"
+
+#: templates/base.html:90 templates/base.html:193 templates/projects.html:3
+msgid "Progetti"
+msgstr "Projects"
+
+#: templates/base.html:209
 msgid "Tutti i diritti riservati."
-msgstr ""
+msgstr "All rights reserved."
 
 #: templates/education.html:2
 msgid "Formazione e Dottorato"
-msgstr ""
+msgstr "Education and PhD"
 
 #: templates/education.html:9
 msgid "Formazione Accademica"
-msgstr ""
+msgstr "Academic Education"
 
 #: templates/education.html:26
 msgid "Voto Finale:"
-msgstr ""
+msgstr "Final Grade:"
 
 #: templates/education.html:31 templates/education.html:62
 msgid "Tesi:"
-msgstr ""
+msgstr "Thesis:"
 
 #: templates/education.html:33
 msgid "link"
-msgstr ""
+msgstr "link"
 
 #: templates/education.html:64
 msgid "link alla tesi"
-msgstr ""
+msgstr "link to thesis"
 
 #: templates/experience.html:2 templates/experience.html:6
 msgid "Esperienza Lavorativa"
-msgstr ""
+msgstr "Work Experience"
 
-#: templates/index.html:9
+#: templates/index.html:8
 msgid "Foto Profilo"
-msgstr ""
+msgstr "Profile Picture"
 
-#: templates/index.html:12
-msgid "Immagine"
-msgstr ""
+#: templates/index.html:17
+msgid "Contatti"
+msgstr "Contact"
 
 #: templates/index.html:23
-msgid "Contatti"
-msgstr ""
-
-#: templates/index.html:29
 msgid "Profilo LinkedIn"
-msgstr ""
+msgstr "LinkedIn Profile"
 
-#: templates/index.html:32
+#: templates/index.html:26
 msgid "Profilo GitHub"
-msgstr ""
+msgstr "GitHub Profile"
 
 #: templates/projects.html:8
 msgid "Progetti Personali e Open Source"
-msgstr ""
+msgstr "Personal and Open Source Projects"
 
 #: templates/projects.html:22
 msgid "Vedi su GitHub"
-msgstr ""
+msgstr "See on GitHub"
 
 #: templates/projects.html:25
 msgid "Link GitHub non disponibile."
-msgstr ""
+msgstr "GitHub Link not available."
 
 #: templates/projects.html:32
 msgid "Nessun progetto elencato."
-msgstr ""
+msgstr "No projects listed."
 
 #: templates/projects.html:38
 msgid "Puoi trovare altri miei progetti sul mio profilo"
-msgstr ""
+msgstr "You can find more of my projects on my profile"
 
 #: templates/ricerca.html:2
 msgid "Ricerca: Pubblicazioni e Conferenze"
-msgstr ""
+msgstr "Research: Publications and Conferences"
 
 #: templates/ricerca.html:9
 msgid "Pubblicazioni"
-msgstr ""
+msgstr "Publications"
 
 #: templates/ricerca.html:15
 msgid "Autori:"
-msgstr ""
+msgstr "Authors:"
 
 #: templates/ricerca.html:22
 msgid "Link alla pubblicazione/progetto"
-msgstr ""
+msgstr "Link to publication/project"
 
 #: templates/ricerca.html:26
 msgid "Nessuna pubblicazione elencata."
-msgstr ""
+msgstr "No publications listed."
 
 #: templates/ricerca.html:33
 msgid "Conferenze e Seminari"
-msgstr ""
+msgstr "Conferences and Seminars"
 
 #: templates/ricerca.html:41
 msgid "Sito web/Link"
-msgstr ""
+msgstr "Website/Link"
 
 #: templates/ricerca.html:45
 msgid "Nessuna conferenza elencata."
-msgstr ""
+msgstr "No conferences listed."
 
 #: templates/skills.html:2
 msgid "Competenze e Certificazioni"
-msgstr ""
+msgstr "Skills and Certifications"
 
 #: templates/skills.html:13
 msgid "Competenze Linguistiche"
-msgstr ""
+msgstr "Language Skills"
 
 #: templates/skills.html:26
 msgid "Competenze Digitali"
-msgstr ""
+msgstr "Digital Skills"
 
 #: templates/skills.html:46
 msgid "Certificazioni"
-msgstr ""
+msgstr "Certifications"
 
 #: templates/skills.html:70
 msgid "Nessuna certificazione universitaria elencata."
-msgstr ""
-
-#: templates/skills.html:73
-msgid ""
-"Nota: i file PDF devono essere aggiunti manualmente nella cartella "
-"`static/certs` (o simile) e i link aggiornati nel file "
-"`data/certifications.json`."
-msgstr ""
+msgstr "No university certifications listed."
 
 #: templates/skills.html:98
 msgid "Nessuna certificazione aggiuntiva elencata."
-msgstr ""
+msgstr "No additional certifications listed."
 
-#: templates/skills.html:101
-msgid ""
-"Nota: i file PDF devono essere aggiunti manually nella cartella "
-"`static/certs` (o simile) e i link aggiornati nel file "
-"`data/certifications.json`."
-msgstr ""
 

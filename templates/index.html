@@ -1,17 +1,11 @@
 {% extends "base.html" %}
-{% block title %}{{ g.structural_data.personal_info.name }} - {{ _('Su di me') }}{% endblock %} {# Usa g.structural_data. #}
+{% block title %}{{ g.structural_data.personal_info.name }} - {{ _('Su di me') }}{% endblock title %} {# Usa g.structural_data. #}
 
 {% block content %}
 <div class="bg-white p-8 rounded-lg shadow-md">
     <h1 class="text-3xl font-bold mb-6 text-gray-800">{{ _('Su di me') }}</h1>
 
-    {% if g.structural_data.personal_info.profile_image %}
-        <img src="{{ url_for('static', filename='img/' + g.structural_data.personal_info.profile_image) }}" alt="{{ _('Foto Profilo') }}" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-gray-200">
-    {% else %}
-        <div class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-gray-200 bg-gray-300 flex items-center justify-center">
-             <span class="text-gray-500 text-sm">{{ _('Immagine') }}</span>
-        </div>
-    {% endif %}
+    <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="{{ _('Foto Profilo') }}" class="w-32 h-40 rounded-full mx-auto mb-6 border-4 border-gray-200">
 
     {# Usa render_md_localized per caricare about_me.it.md o about_me.en.md #}
     <div class="text-lg text-gray-700 leading-relaxed space-y-4">

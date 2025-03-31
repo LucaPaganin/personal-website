@@ -4,7 +4,8 @@
     // My jinja-templates use the extension `.jinja2`. To make it work with the "Django" plugin I add this to my settings:
     "files.associations": {
         "*.jinja2": "django-html",
-        "*.html": "jinja-html"
+        "*.html": "jinja-html",
+        "*.ps1": "powershell"
     },
     // Add emmet tag autocomplete for jinja and django templates
     "emmet.includeLanguages": {
@@ -19,6 +20,10 @@
         "editor.detectIndentation": false,
         "editor.linkedEditing": true,
         "editor.tabSize": 2
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8", // Esempio con Black
+        "editor.formatOnSave": true
     },
     // Add specific formatting rules as needed, e.g.:
     "djlint.enableLinting": true,
