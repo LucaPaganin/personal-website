@@ -1,38 +1,74 @@
 {
     // settings.json
 
-    // My jinja-templates use the extension `.jinja2`. To make it work with the "Django" plugin I add this to my settings:
+    // Associazioni file (corrette come le avevi)
     "files.associations": {
         "*.jinja2": "django-html",
-        "*.html": "jinja-html",
+        "*.html": "jinja-html", // Assicurati che i tuoi file .html siano interpretati come jinja-html se contengono Jinja
         "*.ps1": "powershell"
     },
-    // Add emmet tag autocomplete for jinja and django templates
+    // Emmet (corretto come lo avevi)
     "emmet.includeLanguages": {
         "jinja2": "html",
         "jinja-html": "html",
-        "django-html": "html",
+        "django-html": "html"
     },
-    // Set djLint as formatter for html, jinja, jinja-html, django-html
-    "[html][jinja][jinja-html][django-html]": {
-        "editor.formatOnSave": true,
+
+    // --- Formattatore Specifico per Linguaggio ---
+    // Non c'è un "editor.defaultFormatter" globale qui,
+    // quindi nessun formattatore di default per file non specificati sotto.
+
+    // Abilita djLint specificamente per HTML
+    "[html]": {
         "editor.defaultFormatter": "monosans.djlint",
-        "editor.detectIndentation": false,
+        "editor.formatOnSave": true,
         "editor.linkedEditing": true,
-        "editor.tabSize": 2
+        "djlint.enableLinting": true
+        // Nota: tabSize e detectIndentation sono spesso meglio globali o per-progetto
     },
+    // Abilita djLint per Jinja (se usi file .jinja)
+    "[jinja]": {
+        "editor.defaultFormatter": "monosans.djlint",
+        "editor.formatOnSave": true,
+        "editor.linkedEditing": true,
+        "djlint.enableLinting": true
+    },
+    // Abilita djLint per Jinja-HTML (per i tuoi file .html associati)
+    "[jinja-html]": {
+        "editor.defaultFormatter": "monosans.djlint",
+        "editor.formatOnSave": true,
+        "editor.linkedEditing": true
+    },
+    // Abilita djLint per Django-HTML (per i tuoi file .jinja2 associati)
+    "[django-html]": {
+        "editor.defaultFormatter": "monosans.djlint",
+        "editor.formatOnSave": true,
+        "editor.linkedEditing": true
+    },
+
+    // Formattatore per Python (corretto come lo avevi)
     "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8", // Esempio con Black
+        "editor.defaultFormatter": "ms-python.autopep8", // O "ms-python.black-formatter" ecc.
         "editor.formatOnSave": true
     },
-    // Add specific formatting rules as needed, e.g.:
-    "djlint.enableLinting": true,
+
+    // Impostazioni specifiche di djLint (quando viene eseguito)
+    // Queste sono OK, ma potresti voler disabilitare il linting globale
+    // "djlint.enableLinting": false, // Disabilita globalmente...
+    // ...e poi aggiungere "djlint.enableLinting": true dentro i blocchi [html], [jinja], ecc.
+    // Per ora lasciamo com'è, correggere la selezione del formattatore dovrebbe bastare.
+    "djlint.enableLinting": false,
     "djlint.closeVoidTags": true,
     "djlint.formatAttributeTemplateTags": true,
-    "djlint.formatCss": true,
-    "djlint.formatJs": true,
+    "djlint.formatCss": true, // Formatta CSS inline?
+    "djlint.formatJs": true,  // Formatta JS inline?
     "djlint.lineBreakAfterMultilineTag": false,
     "djlint.maxBlankLines": 2,
     "djlint.maxLineLength": 100,
-    "djlint.maxAttributeLength": 100
+    "djlint.maxAttributeLength": 100,
+
+    // Impostazioni generali editor (spostate qui per chiarezza)
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2 // Applica tabSize=2 a tutti i file, se desiderato
 }
+

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}{{ g.structural_data.personal_info.name }} - {{ _("Su di me") }}{% endblock %}
+
+{% block content %}
+  <div class="bg-white p-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">{{ _("Su di me") }}</h1>
+
+    {# Blocco di testo "Su di me", con HTML diretto selezionato da g.locale #}
+    <div class="prose text-lg text-gray-700 leading-relaxed space-y-4">
+      {# Assicurati che prose non sia qui se non vuoi quello stile #}
+      {% if g.locale == 'it' %}
+        {# Contenuto HTML per Italiano #}
+        <p>
+          Con un solido background accademico in Fisica, culminato con un Dottorato di Ricerca focalizzato sulla missione spaziale <a href="https://www.esa.int/Science_Exploration/Space_Science/Euclid"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="text-blue-600 hover:text-blue-800 hover:underline">Euclid dell'ESA</a>, sono una persona spinta da una profonda curiosità e dal desiderio di apprendere continuamente cose nuove.
+        </p>
+        <p>
+          Questa inclinazione mi ha portato a espandere i miei interessi, che ora spaziano dalla fisica e cosmologia all'analisi dati, intelligenza artificiale e, in particolare, allo sviluppo software, con un focus sul mondo cloud e backend.
+        </p>
+        <p>
+          Dopo l'esperienza nella ricerca accademica, ho intrapreso un percorso nel settore tecnologico, iniziando come sviluppatore Python presso Rulex Innovation Labs. 
+          In questo ruolo, ho lavorato allo sviluppo di una piattaforma per l'analisi dati basata su AI, approfondendo le mie competenze in architetture a microservizi, API REST e tecnologie cloud.
+          Mi sono inoltre occupato dello sviluppo e del mantenimento delle pipelines di continuous integration e continuous deployment (CI/CD).
+        </p>
+        <p>
+          Attualmente, ricopro il ruolo di <strong>Cloud Backend Developer</strong> presso <a href="https://www.rina.org/it/">RINA</a>, dove contribuisco alla progettazione, allo sviluppo e 
+          alla gestione di servizi applicativi e infrastrutture distribuite in ambiente cloud, utilizzando principalmente <strong>Microsoft Azure</strong>.
+        </p>
+        <p>
+          Il mio linguaggio di programmazione principale è <strong>Python</strong>, che utilizzo quotidianamente per creare soluzioni backend efficienti, scalabili e robuste.
+        </p>
+      {% else %}
+        {# Contenuto HTML per Inglese #}
+        <p>
+          With a solid academic background in Physics, culminating in a PhD focused on the ESA's Euclid mission (<a href="https://www.esa.int/Science_Exploration/Space_Science/Euclid"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="text-blue-600 hover:text-blue-800 hover:underline">link</a>), I am driven by a deep curiosity and a desire to continuously learn new things.
+        </p>
+        <p>
+          This inclination has led me to broaden my interests, which now range from physics and cosmology to data analysis, artificial intelligence, and particularly, software development, with a focus on the cloud and backend world.
+        </p>
+        <p>
+          After academic research, I embarked on a path in the technology sector, starting as a software developer (with a focus on Python) at Rulex Innovation Labs. In this role, I worked on developing an AI-based data analysis platform, deepening my skills in microservice architectures, REST APIs, and cloud technologies.
+        </p>
+        <p>
+          Currently, I hold the position of <strong>Cloud Backend Developer at RINA</strong>, where I contribute to the design, development, and management of application services and distributed infrastructure in cloud environments (primarily <strong>Microsoft Azure</strong>).
+        </p>
+        <p>
+          My primary programming language is <strong>Python</strong>, which I use daily to create efficient, scalable, and robust backend solutions.
+        </p>
+      {% endif %}
+    </div>
+
+    {# Contatti Rapidi (invariato) #}
+    <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+      <h2 class="text-xl font-semibold mb-4 text-gray-700">{{ _("Contatti") }}</h2>
+      <p class="text-gray-600">{{ g.structural_data.personal_info.email }}</p>
+      <p class="text-gray-600">{{ g.structural_data.personal_info.phone }}</p>
+      <p class="text-gray-600">{{ g.structural_data.personal_info.address }}</p>
+      <div class="mt-4 space-x-4">
+        {% if g.structural_data.personal_info.linkedin_url and g.structural_data.personal_info.linkedin_url != '#' %}
+          <a href="{{ g.structural_data.personal_info.linkedin_url }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-blue-600 hover:text-blue-800 font-medium">{{ _("Profilo LinkedIn") }}</a>
+        {% endif %}
+        {% if g.structural_data.personal_info.github_url and g.structural_data.personal_info.github_url != '#' %}
+          <a href="{{ g.structural_data.personal_info.github_url }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-blue-600 hover:text-blue-800 font-medium">{{ _("Profilo GitHub") }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}

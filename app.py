@@ -2,23 +2,29 @@ import os
 import json
 import markdown
 import datetime
-from flask import Flask, render_template, request, session, redirect, url_for, g
+from flask import Flask, request, session, g # Rimosso render_template, redirect, url_for se non usati qui
 from flask_babel import Babel, _
 
+# Importa il Blueprint dal file routes.py
+from routes import main_bp
+
 # --- Funzione Locale Selector (definita prima dell'app) ---
+# (Questa funzione ora serve a babel.init_app)
 def get_locale():
     """Determina la lingua da usare per la richiesta corrente."""
     if 'language' in session:
         return session['language']
+    # request è disponibile nel contesto della richiesta
     if request:
-        # Match against configured languages
-        return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
-    # Fallback if no request context or no match
+        match = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+        if match:
+            return match
+    # Fallback alla lingua di default
     return app.config['BABEL_DEFAULT_LOCALE']
 
 
 # --- Configurazione App ---
-app = Flask(__name__)
+app = Flask(__name__) # Crea l'istanza dell'applicazione Flask
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['BABEL_DEFAULT_LOCALE'] = 'it'
 app.config['BABEL_DEFAULT_TIMEZONE'] = 'Europe/Rome'
@@ -27,8 +33,9 @@ app.config['LANGUAGES'] = {
     'it': 'Italiano'
 }
 
-# --- Inizializzazione Babel ---
+# --- Inizializzazione Estensioni ---
 babel = Babel(app)
+# Registra il selettore di lingua usando init_app
 babel.init_app(app, locale_selector=get_locale)
 
 
@@ -56,24 +63,22 @@ def load_json_data(filename):
 def load_all_structural_data():
     """Carica i dati strutturali dai file JSON."""
     all_data = {}
-    # Lista aggiornata dei file JSON necessari
     json_files = {
         'personal_info': 'personal_info.json',
         'experience': 'experience.json',
-        'education': 'education.json', # Contiene la struttura per education e ID MD
-        'phd_details': 'phd_details.json', # Contiene struttura PhD e ID MD
-        'skills': 'skills.json', # Contiene struttura skills
-        'conferences': 'conferences.json', # Contiene lista conferenze
-        'publications': 'publications.json', # Contiene lista pubblicazioni (senza abstract)
-        'projects': 'projects.json', # Contiene lista progetti (senza descrizioni)
-        'certifications': 'certifications.json' # Contiene struttura certificazioni
+        'education': 'education.json',
+        'phd_details': 'phd_details.json',
+        'skills': 'skills.json',
+        'conferences': 'conferences.json',
+        'publications': 'publications.json',
+        'projects': 'projects.json',
+        'certifications': 'certifications.json'
     }
     for key, filename in json_files.items():
         data = load_json_data(filename)
         if data is not None:
             all_data[key] = data
         else:
-            # Imposta default appropriato se caricamento fallisce
             default_value = [] if key in ['experience', 'education', 'conferences', 'publications', 'projects'] else {}
             all_data[key] = default_value
             print(f"Attenzione: Dati strutturali per '{key}' non caricati correttamente.")
@@ -85,7 +90,9 @@ structural_data_loaded = load_all_structural_data()
 @app.before_request
 def before_request():
     """Eseguito prima di ogni richiesta."""
-    g.locale = str(get_locale())
+    # Imposta la lingua corrente nel contesto globale 'g'
+    g.locale = str(get_locale()) # Chiama get_locale per impostare g.locale
+    # Rende disponibili i dati JSON strutturali nel contesto 'g'
     g.structural_data = structural_data_loaded
 
 # --- Context Processors ---
@@ -145,47 +152,13 @@ def inject_content_helpers():
         render_md_localized=render_md_localized
     )
 
-# --- Route Aggiornate ---
-@app.route('/')
-def index():
-    # Pagina principale (Su di me)
-    return render_template('index.html')
-
-@app.route('/experience')
-def experience():
-    # Pagina Esperienza Lavorativa
-    return render_template('experience.html')
-
-@app.route('/education') # Nuova route per education + Dottorato
-def education():
-    return render_template('education.html')
-
-@app.route('/skills') # Nuova route per skills + Certificazioni
-def skills():
-    return render_template('skills.html')
-
-@app.route('/ricerca') # Nuova route per Pubblicazioni + Conferenze
-def ricerca():
-    return render_template('ricerca.html')
-
-@app.route('/projects')
-def projects():
-    # Pagina Progetti
-    return render_template('projects.html')
-
-# Route per cambio lingua (invariata)
-@app.route('/language/<language>')
-def set_language(language=None):
-    if language in app.config['LANGUAGES']:
-        session['language'] = language
-    referrer = request.referrer
-    if referrer:
-         base_referrer = referrer.split('?')[0]
-         if f'/language/{language}' not in base_referrer:
-              return redirect(referrer)
-    return redirect(url_for('index'))
+# --- Registrazione Blueprint ---
+# Registra il blueprint importato da routes.py sull'applicazione principale
+app.register_blueprint(main_bp)
 
 
 # --- Avvio App ---
 if __name__ == '__main__':
+    # debug=True è utile in sviluppo, disattivalo in produzione
     app.run(debug=True)
+

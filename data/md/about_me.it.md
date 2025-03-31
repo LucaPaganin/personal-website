@@ -1,9 +1,9 @@
-    Laurea triennale in Fisica con 110/110 e lode. Laurea magistrale in Fisica con 110/110 e lode.
-    Dottorato di Ricerca in Fisica, con una tesi nell'ambito della missione spaziale Euclid dell'Agenzia Spaziale Europea.
+Sono una persona curiosa, con una forte passione per l'apprendimento continuo e la scoperta di nuove tecnologie. 
+Il mio percorso è iniziato con studi in Fisica, culminati in un Dottorato di Ricerca svolto nell'ambito della [missione Euclid dell'ESA](https://www.esa.int/Science_Exploration/Space_Science/Euclid).
 
-    Dopo il dottorato sono stato assunto come Junior Full Stack Developer presso Rulex Innovation Labs, azienda
-    genovese che si occupa dello sviluppo di una piattaforma software per l'analisi dati mediante l'impiego
-    dell'intelligenza artificiale.
+Forte delle solide competenze di programmazione acquisite durante il dottorato, ho scelto di orientare la mia carriera verso il settore tecnologico. 
+Ho iniziato come sviluppatore Python presso Rulex Innovation Labs, dove ho contribuito allo sviluppo della REST API e della Command Line Interface (CLI) della piattaforma [Rulex Platform](https://rulex.ai), curando anche le attività DevOps legate allo sviluppo e alla manutenzione delle pipeline CI/CD.
 
-    Mi appassionano la cosmologia, lo sviluppo software e l'analisi dati.
-    
+Attualmente, ricopro il ruolo di **Cloud Backend Developer** in [RINA](https://rina.org), lavorando principalmente su piattaforma **Microsoft Azure** per la progettazione e lo sviluppo di soluzioni backend.
+
+**Python** è il mio linguaggio d'elezione, che applico quotidianamente per creare sistemi efficienti, scalabili e robusti.

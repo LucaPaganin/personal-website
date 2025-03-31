@@ -1,107 +1,106 @@
 {% extends "base.html" %}
-{% block title %}{{ g.structural_data.personal_info.name }} - {{ _('Competenze e Certificazioni') }}{% endblock %}
+{% block title %}
+  {{ g.structural_data.personal_info.name }} - {{ _("Competenze e Certificazioni") }}
+{% endblock title %}
 
 {% block content %}
-<div class="bg-white p-8 rounded-lg shadow-md space-y-12">
-
-    {# --- Sezione Competenze --- #}
-    <section>
-        <h1 class="text-3xl font-bold mb-10 text-gray-800">{{ _('Competenze') }}</h1>
-
-        {# Competenze Linguistiche #}
-        <div class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">{{ _('Competenze Linguistiche') }}</h2>
-            <ul class="list-disc list-inside space-y-1 text-gray-700">
-                {% for lang in g.structural_data.skills.languages %}
-                    <li>
-                        <strong>{{ get_localized(lang.name) }}:</strong>
-                        {{ get_localized(lang.level) }}
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        {# Competenze Digitali #}
-        <div>
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">{{ _('Competenze Digitali') }}</h2>
-            <div class="space-y-6">
-                {% for element in g.structural_data.skills.digital %}
-                    <div>
-                        <h3 class="text-lg font-medium text-gray-800 mb-2">
-                            {{ get_localized(element.category) }}
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            {% for item in element.entries %}
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">{{ item }}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
+  <div class="bg-white p-8 rounded-lg shadow-md space-y-12">
 
     {# --- Sezione Certificazioni --- #}
     <section>
-        <h1 class="text-3xl font-bold mb-10 text-gray-800 border-t pt-8 mt-8">{{ _('Certificazioni') }}</h1>
+      <h1 class="text-3xl font-bold mb-10 text-gray-800 border-t pt-8 mt-8">
+        {{ _("Certificazioni") }}
+      </h1>
 
-        {# Certificazioni Universitarie #}
-        <div class="mb-10">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">
-                {{ get_localized(g.structural_data.certifications.university.title) }}
-            </h2>
-            <p class="text-gray-700 mb-4">
-                {{ get_localized(g.structural_data.certifications.university.description) }}
-            </p>
-            <ul class="list-disc list-inside space-y-2">
-                {% for cert in g.structural_data.certifications.university.files %}
-                    {% if cert.file_url %}
-                        <li>
-                            <a href="{{ cert.file_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-                               {{ get_localized(cert.name) }} (PDF)
-                            </a>
-                        </li>
-                    {% elif cert.placeholder %}
-                         <li class="text-gray-500 italic">
-                             {{ get_localized(cert.placeholder) }}
-                         </li>
-                    {% endif %}
-                {% else %}
-                     <li class="text-gray-600">{{ _('Nessuna certificazione universitaria elencata.') }}</li>
-                {% endfor %}
-            </ul>
-             {# 'Nota: i file PDF devono essere aggiunti manualmente nella cartella `static/certs` (o simile) e i link aggiornati nel file `data/certifications.json`.') }}</> #}
-        </div>
+      {# Certificazioni Universitarie #}
+      <div class="mb-10">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">
+          {{ get_localized(g.structural_data.certifications.university.title) }}
+        </h2>
+        <p class="text-gray-700 mb-4">
+          {{ get_localized(g.structural_data.certifications.university.description) }}
+        </p>
+        <ul class="list-disc list-inside space-y-2">
+          {% for cert in g.structural_data.certifications.university.files %}
+            {% if cert.file_url %}
+              <li>
+                <a href="{{ cert.file_url }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="text-blue-600 hover:underline">{{ get_localized(cert.name) }} (PDF)</a>
+              </li>
+            {% elif cert.placeholder %}
+              <li class="text-gray-500 italic">{{ get_localized(cert.placeholder) }}</li>
+            {% endif %}
+          {% else %}
+            <li class="text-gray-600">{{ _("Nessuna certificazione universitaria elencata.") }}</li>
+          {% endfor %}
+        </ul>
+        {# 'Nota: i file PDF devono essere aggiunti manualmente nella cartella `static/certs` (o simile) e i link aggiornati nel file `data/certifications.json`.') }}</> #}
+      </div>
 
-        {# Certificazioni Aggiuntive #}
-        <div>
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">
-                 {{ get_localized(g.structural_data.certifications.additional.title) }}
-            </h2>
-             <p class="text-gray-700 mb-4">
-                {{ get_localized(g.structural_data.certifications.additional.description) }}
-            </p>
-            <ul class="list-disc list-inside space-y-2">
-                 {% for cert in g.structural_data.certifications.additional.files %}
-                    {% if cert.file_url %}
-                        <li>
-                            <a href="{{ cert.file_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-                                {{ get_localized(cert.name) }} (PDF)
-                            </a>
-                        </li>
-                    {% elif cert.placeholder %}
-                         <li class="text-gray-500 italic">
-                             {{ get_localized(cert.placeholder) }}
-                         </li>
-                    {% endif %}
-                {% else %}
-                     <li class="text-gray-600">{{ _('Nessuna certificazione aggiuntiva elencata.') }}</li>
-                {% endfor %}
-            </ul>
-            {# 'Nota: i file PDF devono essere aggiunti manually nella cartella `static/certs` (o simile) e i link aggiornati nel file `data/certifications.json`.' #}
-        </div>
+      {# Certificazioni Aggiuntive #}
+      <div>
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">
+          {{ get_localized(g.structural_data.certifications.additional.title) }}
+        </h2>
+        <p class="text-gray-700 mb-4">
+          {{ get_localized(g.structural_data.certifications.additional.description) }}
+        </p>
+        <ul class="list-disc list-inside space-y-2">
+          {% for cert in g.structural_data.certifications.additional.files %}
+            {% if cert.file_url %}
+              <li>
+                <a href="{{ cert.file_url }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="text-blue-600 hover:underline">{{ get_localized(cert.name) }} (PDF)</a>
+              </li>
+            {% elif cert.placeholder %}
+              <li class="text-gray-500 italic">{{ get_localized(cert.placeholder) }}</li>
+            {% endif %}
+          {% else %}
+            <li class="text-gray-600">{{ _("Nessuna certificazione aggiuntiva elencata.") }}</li>
+          {% endfor %}
+        </ul>
+        {# 'Nota: i file PDF devono essere aggiunti manually nella cartella `static/certs` (o simile) e i link aggiornati nel file `data/certifications.json`.' #}
+      </div>
     </section>
 
-</div>
-{% endblock %}
+    {# --- Sezione Competenze --- #}
+    <section>
+      <h1 class="text-3xl font-bold mb-10 text-gray-800">{{ _("Competenze") }}</h1>
 
+      {# Competenze Linguistiche #}
+      <div class="mb-10">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">{{ _("Competenze Linguistiche") }}</h2>
+        <ul class="list-disc list-inside space-y-1 text-gray-700">
+          {% for lang in g.structural_data.skills.languages %}
+            <li>
+              <strong>{{ get_localized(lang.name) }}:</strong>
+              {{ get_localized(lang.level) }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {# Competenze Digitali #}
+      <div>
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">{{ _("Competenze Digitali") }}</h2>
+        <div class="space-y-6">
+          {% for element in g.structural_data.skills.digital %}
+            <div>
+              <h3 class="text-lg font-medium text-gray-800 mb-2">{{ get_localized(element.category) }}</h3>
+              <div class="flex flex-wrap gap-2">
+                {% for item in element.entries %}
+                  <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">{{ item }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+  </div>
+{% endblock content %}
