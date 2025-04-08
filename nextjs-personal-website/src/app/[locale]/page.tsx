@@ -1,3 +1,5 @@
+"use client"
+
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -19,16 +21,14 @@ export default function HomePage() {
         <h1 className="text-5xl font-bold mb-4">
           {t('greeting')} <span className="text-primary">Luca Paganin</span>
         </h1>
-        <p className="text-xl mb-8">{t('title')}</p>
-        
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link href="about" className="btn btn-primary">
+        <p className="text-xl mb-8">{t('title')}</p>        <div className="flex flex-wrap justify-center gap-4">
+          <Link href="/about" className="btn btn-primary">
             {t('about')}
           </Link>
-          <Link href="projects" className="btn btn-secondary">
+          <Link href="/projects" className="btn btn-secondary">
             {t('projects')}
           </Link>
-          <Link href="cv/experiences" className="btn btn-accent">
+          <Link href="/cv/experiences" className="btn btn-accent">
             {t('cv')}
           </Link>
         </div>
@@ -47,9 +47,8 @@ export default function HomePage() {
             <div className="card-body items-center text-center">
               <FaUser className="text-5xl mb-4 text-primary" />
               <h2 className="card-title">{t('about')}</h2>
-              <p>Learn more about who I am, my background, and what drives me.</p>
-              <div className="card-actions">
-                <Link href="about" className="btn btn-primary">
+              <p>Learn more about who I am, my background, and what drives me.</p>              <div className="card-actions">
+                <Link href="/about" className="btn btn-primary">
                   {pathPrefix('about')}
                 </Link>
               </div>
@@ -66,9 +65,8 @@ export default function HomePage() {
             <div className="card-body items-center text-center">
               <FaCode className="text-5xl mb-4 text-secondary" />
               <h2 className="card-title">{t('projects')}</h2>
-              <p>Explore the software projects I've built and contributed to.</p>
-              <div className="card-actions">
-                <Link href="projects" className="btn btn-secondary">
+              <p>Explore the software projects I've built and contributed to.</p>              <div className="card-actions">
+                <Link href="/projects" className="btn btn-secondary">
                   {pathPrefix('projects')}
                 </Link>
               </div>
@@ -85,9 +83,8 @@ export default function HomePage() {
             <div className="card-body items-center text-center">
               <FaFileAlt className="text-5xl mb-4 text-accent" />
               <h2 className="card-title">{t('cv')}</h2>
-              <p>View my professional experience, education, and technical skills.</p>
-              <div className="card-actions">
-                <Link href="cv/experiences" className="btn btn-accent">
+              <p>View my professional experience, education, and technical skills.</p>              <div className="card-actions">
+                <Link href="/cv/experiences" className="btn btn-accent">
                   {pathPrefix('cv')}
                 </Link>
               </div>

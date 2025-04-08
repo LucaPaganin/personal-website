@@ -1,5 +1,4 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { useLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -12,10 +11,10 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const locale = useLocale();
+  const { locale } = await params;
 
   // Show a 404 error if the user requests an unknown locale
-  if (params.locale !== locale) {
+  if (!locales.includes(locale)) {
     notFound();
   }
 

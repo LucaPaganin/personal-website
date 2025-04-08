@@ -1,17 +1,43 @@
+"use client"
+
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import LanguageSwitcher from './LanguageSwitcher';
-import ThemeSwitcher from './ThemeSwitcher';
-import { useState } from 'react';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
+import { useState, useEffect } from 'react';
 import { locales } from '@/i18n';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Navbar() {
-  const t = useTranslations('navigation');
-  const locale = useLocale();
+  // Safe access to translations with fallback
+  const safeT = (key: string, defaultValue: string = '') => {
+    try {
+      return t(key);
+    } catch (error) {
+      return defaultValue;
+    }
+  };
+    // Wrap hooks in try-catch for safer client-side rendering
+  let t: (key: string) => string;
+  let locale: string;
+  try {
+    t = useTranslations('navigation');
+    locale = useLocale();
+  } catch (error) {
+    // Default fallback if hooks fail
+    t = (key: string): string => key;
+    locale = 'en';
+  }
+
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Client-side only code
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Gets the path without the locale prefix
   const getPathWithoutLocale = () => {
@@ -24,7 +50,6 @@ export default function Navbar() {
     const currentPath = getPathWithoutLocale();
     return `/${newLocale}${currentPath}`;
   };
-
   // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,6 +59,19 @@ export default function Navbar() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  // Only render UI elements after client-side hydration is complete
+  if (!mounted) {
+    return <nav className="bg-base-200 shadow-md sticky top-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex-shrink-0">
+            <span className="text-xl font-bold">Luca Paganin</span>
+          </div>
+        </div>
+      </div>
+    </nav>;
+  }
 
   return (
     <nav className="bg-base-200 shadow-md sticky top-0 z-50">
