@@ -1,5 +1,4 @@
-import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
+import { getTranslations, getLocale } from 'next-intl/server';
 import { motion } from 'framer-motion';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
@@ -70,8 +69,9 @@ async function getMarkdownContent(locale: string, filename: string) {
 }
 
 export default async function ExperiencesPage() {
-  const t = useTranslations('cv');
-  const locale = useLocale();
+  // Use server-side functions instead of hooks
+  const t = await getTranslations('cv');
+  const locale = await getLocale();
   const experiences = await getExperiences();
   
   // Sort experiences by date (most recent first)

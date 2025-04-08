@@ -59,10 +59,9 @@ export default function Navbar() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
   // Only render UI elements after client-side hydration is complete
   if (!mounted) {
-    return <nav className="bg-base-200 shadow-md sticky top-0 z-50">
+    return <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50 rounded-b-lg">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
@@ -72,9 +71,8 @@ export default function Navbar() {
       </div>
     </nav>;
   }
-
   return (
-    <nav className="bg-base-200 shadow-md sticky top-0 z-50">
+    <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50 rounded-b-lg">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Home Link */}
@@ -82,13 +80,11 @@ export default function Navbar() {
             <Link href={`/${locale}`} className="text-xl font-bold">
               Luca Paganin
             </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
+          </div>          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
             <Link
               href={`/${locale}`}
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                 pathname === `/${locale}` ? 'bg-primary text-white' : 'hover:bg-base-300'
               }`}
             >
@@ -96,7 +92,7 @@ export default function Navbar() {
             </Link>
             <Link
               href={`/${locale}/about`}
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                 pathname === `/${locale}/about` ? 'bg-primary text-white' : 'hover:bg-base-300'
               }`}
             >
@@ -104,7 +100,7 @@ export default function Navbar() {
             </Link>
             <Link
               href={`/${locale}/projects`}
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                 pathname === `/${locale}/projects` ? 'bg-primary text-white' : 'hover:bg-base-300'
               }`}
             >
@@ -147,7 +143,7 @@ export default function Navbar() {
               </ul>
             </div>
           </div>          {/* Right side - Language Switcher and Theme Switcher */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-4">
             <ThemeSwitcher />
             <LanguageSwitcher 
               locales={locales} 
@@ -158,7 +154,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden ml-2 inline-flex items-center justify-center p-2 rounded-md hover:bg-base-300 focus:outline-none"
+              className="md:hidden ml-4 inline-flex items-center justify-center p-2 rounded-md hover:bg-base-300 focus:outline-none"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>

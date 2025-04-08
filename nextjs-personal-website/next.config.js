@@ -7,7 +7,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
-  },
+  }
 };
 
 const withNextIntl = require('next-intl/plugin')(
