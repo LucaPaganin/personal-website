@@ -1,0 +1,1 @@
+Incarico di esercitatore universitario per il corso di Fisica Generale rivolto agli studenti dei corsi di Laurea in Ingegneria Chimica ed Elettrica durante gli anni accademici 2019-2020 e 2020-2021. Ho svolto sia lezioni frontali che esercitazioni guidate.

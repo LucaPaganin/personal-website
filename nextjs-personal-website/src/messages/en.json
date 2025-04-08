@@ -1,0 +1,41 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects",
+    "cv": "CV",
+    "experiences": "Experiences",
+    "education": "Education",
+    "techStack": "Tech Stack",
+    "publications": "Publications",
+    "certifications": "Certifications"
+  },
+  "languageSelector": {
+    "en": "English",
+    "it": "Italian"
+  },
+  "home": {
+    "greeting": "Hi, I'm",
+    "title": "Welcome to my personal website",
+    "about": "About Me",
+    "projects": "My Projects",
+    "cv": "My CV"
+  },
+  "about": {
+    "title": "About Me",
+    "photoGallery": "Photo Gallery"
+  },
+  "projects": {
+    "title": "Projects",
+    "github": "GitHub",
+    "demo": "Live Demo"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "experiences": "Professional Experiences",
+    "education": "Education",
+    "techStack": "Technical Skills",
+    "publications": "Publications",
+    "certifications": "Certifications"
+  }
+}

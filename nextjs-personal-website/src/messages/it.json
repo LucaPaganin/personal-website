@@ -1,0 +1,41 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "Chi Sono",
+    "projects": "Progetti",
+    "cv": "CV",
+    "experiences": "Esperienze",
+    "education": "Formazione",
+    "techStack": "Competenze Tecniche",
+    "publications": "Pubblicazioni",
+    "certifications": "Certificazioni"
+  },
+  "languageSelector": {
+    "en": "Inglese",
+    "it": "Italiano"
+  },
+  "home": {
+    "greeting": "Ciao, sono",
+    "title": "Benvenuto nel mio sito personale",
+    "about": "Chi Sono",
+    "projects": "I Miei Progetti",
+    "cv": "Il Mio CV"
+  },
+  "about": {
+    "title": "Chi Sono",
+    "photoGallery": "Galleria Fotografica"
+  },
+  "projects": {
+    "title": "Progetti",
+    "github": "GitHub",
+    "demo": "Demo"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "experiences": "Esperienze Professionali",
+    "education": "Formazione",
+    "techStack": "Competenze Tecniche",
+    "publications": "Pubblicazioni",
+    "certifications": "Certificazioni"
+  }
+}

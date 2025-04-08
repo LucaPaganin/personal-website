@@ -1,0 +1,38 @@
+{
+    "university": {
+        "title": {
+            "it": "Certificazioni Esami Universitari",
+            "en": "University Exam Certifications"
+        },
+        "description": {
+            "it": "Qui puoi trovare le certificazioni relative agli esami sostenuti durante i miei percorsi di Laurea Triennale e Magistrale.",
+            "en": "Here you can find the certifications related to the exams taken during my Bachelor's and Master's degree programs."
+        },
+        "files": [
+            {
+                "placeholder": {
+                    "it": "Aggiungere link ai PDF dei certificati...",
+                    "en": "Add links to certificate PDFs..."
+                }
+            }
+        ]
+    },
+    "additional": {
+        "title": {
+            "it": "Certificazioni Aggiuntive",
+            "en": "Additional Certifications"
+        },
+        "description": {
+            "it": "Altre certificazioni rilevanti conseguite.",
+            "en": "Other relevant certifications obtained."
+        },
+        "files": [
+            {
+                "placeholder": {
+                    "it": "Aggiungere link ai PDF dei certificati...",
+                    "en": "Add links to certificate PDFs..."
+                }
+            }
+        ]
+    }
+}

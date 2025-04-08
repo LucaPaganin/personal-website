@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #3b82f6;
+  --secondary-color: #8b5cf6;
+  --accent-color: #f59e0b;
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
+}
+
+/* Custom styles for the timeline components */
+.vertical-timeline-element--work .vertical-timeline-element-content {
+  background: var(--primary-color);
+}
+
+.vertical-timeline-element--education .vertical-timeline-element-content {
+  background: var(--secondary-color);
+}
+
+/* Add smooth transitions */
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom styling for the carousel */
+.slick-dots li button:before {
+  font-size: 10px;
+  color: var(--primary-color);
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--primary-color);
+}
+
+/* Improve card hover effects */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
