@@ -1,20 +1,34 @@
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from 'next-themes';
+import { useState } from 'react';
 
 export default function ThemeSwitcher() {
-  const { setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [selectedMode, setSelectedMode] = useState(theme === 'dark' ? 'dark' : 'light');;
 
   // Toggle theme
   const toggleTheme = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+    const html = document.getElementsByTagName("html");
+    const currentMode = html[0].className;
+
+    if (currentMode === "dark") {
+      html[0].className = "light";
+      setTheme("light");
+      setSelectedMode("light");
+    } else {
+      html[0].className = "dark";
+      setTheme("dark");
+      setSelectedMode("dark");
+    }
   };
 
   // Use resolvedTheme to ensure correct icon is shown during initial render and when using system preference
-  const isDark = resolvedTheme === 'dark';
-  return (
+  const isDark = selectedMode === 'dark';  return (
     <button 
       onClick={toggleTheme}
-      className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+      className={`p-2 rounded-full focus:outline-none text-white hover:bg-blue-500`}
+      id='btn-mode'
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (
