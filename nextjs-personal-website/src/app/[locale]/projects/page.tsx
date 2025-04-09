@@ -1,8 +1,8 @@
+"use client";
+
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import fs from 'fs';
-import path from 'path';
 
 // Define the Project type
 interface Project {
@@ -13,43 +13,25 @@ interface Project {
   technologies?: string[];
 }
 
-// Function to get projects data
-async function getProjects(): Promise<Project[]> {
-  try {
-    // Get projects from the Next.js data folder
-    const filePath = path.join(process.cwd(), 'src', 'data', 'json', 'projects.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const projects = JSON.parse(fileContents);
-    
-    // Add additional info for display purposes if needed
-    return projects.map(project => ({
-      ...project,
-      description: project.description || "A software development project.",
-      technologies: project.technologies || ["Software Development"]
-    }));
-  } catch (error) {
-    console.error('Error loading projects:', error);
-    // Return sample projects if the data cannot be loaded
-    return [
-      {
-        name: "SEYFERT: the SurvEY FishEr foRecast Tool",
-        description: "A Python tool for Fisher matrix forecasting of cosmological surveys.",
-        github_link: "https://github.com/LucaPaganin/SEYFERT",
-        technologies: ["Python", "NumPy", "SciPy"]
-      },
-      {
-        name: "Solar System Simulator",
-        description: "A simulator for the dynamics of the solar system.",
-        github_link: "https://github.com/LucaPaganin/SolarSystem/",
-        technologies: ["C++", "OpenGL"]
-      }
-    ];
-  }
-}
-
-export default async function ProjectsPage() {
+export default function ProjectsPage() {
   const t = useTranslations('projects');
-  const projects = await getProjects();
+  
+  // Directly embed the projects data here
+  const projects: Project[] = [
+    {
+      name: "SEYFERT: the SurvEY FishEr foRecast Tool",
+      description: "A Python tool for Fisher matrix forecasting of cosmological surveys.",
+      github_link: "https://github.com/LucaPaganin/SEYFERT",
+      technologies: ["Python", "NumPy", "SciPy"]
+    },
+    {
+      name: "Solar System Simulator",
+      description: "A simulator for the dynamics of the solar system.",
+      github_link: "https://github.com/LucaPaganin/SolarSystem/",
+      technologies: ["C++", "OpenGL"]
+    },
+    // Add more projects as needed
+  ];
   
   // Animation variants for staggered list items
   const container = {

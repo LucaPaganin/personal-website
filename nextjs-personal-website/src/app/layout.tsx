@@ -18,13 +18,12 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" data-theme="light">
+}>) {  return (
+    <html lang="en" data-theme="light" className="h-full">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} min-h-screen flex flex-col bg-base-100 text-base-content`}>{children}</body>
     </html>
   );
 }
