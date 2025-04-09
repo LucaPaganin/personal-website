@@ -118,8 +118,7 @@ export default function Navbar() {
             >
               {" "}
               {t("projects")}
-            </Link>{" "}
-            {/* CV Dropdown */}
+            </Link>{" "}            {/* CV Dropdown */}
             <div className="relative group">
               <div
                 className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer ${
@@ -130,7 +129,7 @@ export default function Navbar() {
               >
                 {t("cv")}{" "}
               </div>{" "}
-              <ul className="absolute hidden group-hover:block z-[1] mt-1 p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors">
+              <ul className="absolute hidden group-hover:block hover:block z-[1] mt-0 p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors">
                 {" "}
                 <li>
                   <Link

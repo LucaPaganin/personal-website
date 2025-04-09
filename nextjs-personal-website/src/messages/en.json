@@ -8,10 +8,7 @@
     "education": "Education",
     "techStack": "Tech Stack",
     "publications": "Publications",
-    "certifications": "Certifications",
-    "aboutDescription": "Learn more about who I am, my background, and what drives me.",
-    "projectsDescription": "Explore the software projects I've built and contributed to.",
-    "cvDescription": "View my professional experience, education, and technical skills."
+    "certifications": "Certifications"
   },
   "languageSelector": {
     "en": "English",
@@ -22,7 +19,10 @@
     "title": "Welcome to my personal website",
     "about": "About Me",
     "projects": "My Projects",
-    "cv": "My CV"
+    "cv": "My CV",
+    "aboutDescription": "Learn more about who I am, my background, and what drives me.",
+    "projectsDescription": "Explore the software projects I've built and contributed to.",
+    "cvDescription": "View my professional experience, education, and technical skills."
   },
   "about": {
     "title": "About Me",
