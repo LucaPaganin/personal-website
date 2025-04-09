@@ -130,7 +130,7 @@ export default function Navbar() {
               >
                 {t("cv")}{" "}
               </div>{" "}
-              <ul className="absolute hidden group-hover:block z-[1] mt-1 p-2 shadow bg-sky-100 dark:bg-gray-800 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors">
+              <ul className="absolute hidden group-hover:block z-[1] mt-1 p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors">
                 {" "}
                 <li>
                   <Link

@@ -29,21 +29,20 @@ export default function HomePage() {
       {/* Cards Section */}
       <section className="py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* About Card */}
-          <motion.div
-            className="card bg-base-100 shadow-xl"
+          {/* About Card */}          <motion.div
+            className="rounded-lg bg-white dark:bg-gray-800 shadow-xl overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="card-body items-center text-center">
+            <div className="p-6 flex flex-col items-center text-center">
               <FaUser className="text-5xl mb-4 text-primary" />
-              <h2 className="card-title">{t("about")}</h2>{" "}
-              <p>
+              <h2 className="text-2xl font-bold mb-2">{t("about")}</h2>{" "}
+              <p className="mb-6">
                 {t("aboutDescription")}
               </p>{" "}
-              <div className="card-actions">
-                <Link href="/about" className="btn btn-primary">
+              <div className="mt-auto">
+                <Link href="/about" className="inline-block px-5 py-2.5 rounded-md bg-primary hover:bg-primary/90 text-white font-medium transition-colors">
                   {pathPrefix("about")}
                 </Link>
               </div>
@@ -52,19 +51,19 @@ export default function HomePage() {
 
           {/* Projects Card */}
           <motion.div
-            className="card bg-base-100 shadow-xl"
+            className="rounded-lg bg-white dark:bg-gray-800 shadow-xl overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="card-body items-center text-center">
+            <div className="p-6 flex flex-col items-center text-center">
               <FaCode className="text-5xl mb-4 text-secondary" />
-              <h2 className="card-title">{t("projects")}</h2>{" "}
-              <p>
+              <h2 className="text-2xl font-bold mb-2">{t("projects")}</h2>{" "}
+              <p className="mb-6">
                 {t("projectsDescription")}
               </p>{" "}
-              <div className="card-actions">
-                <Link href="/projects" className="btn btn-secondary">
+              <div className="mt-auto">
+                <Link href="/projects" className="inline-block px-5 py-2.5 rounded-md bg-secondary hover:bg-secondary/90 text-white font-medium transition-colors">
                   {pathPrefix("projects")}
                 </Link>
               </div>
@@ -73,19 +72,19 @@ export default function HomePage() {
 
           {/* CV Card */}
           <motion.div
-            className="card bg-base-100 shadow-xl"
+            className="rounded-lg bg-white dark:bg-gray-800 shadow-xl overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <div className="card-body items-center text-center">
+            <div className="p-6 flex flex-col items-center text-center">
               <FaFileAlt className="text-5xl mb-4 text-accent" />
-              <h2 className="card-title">{t("cv")}</h2>{" "}
-              <p>
+              <h2 className="text-2xl font-bold mb-2">{t("cv")}</h2>{" "}
+              <p className="mb-6">
                 {t("cvDescription")}
               </p>{" "}
-              <div className="card-actions">
-                <Link href="/cv/experiences" className="btn btn-accent">
+              <div className="mt-auto">
+                <Link href="/cv/experiences" className="inline-block px-5 py-2.5 rounded-md bg-accent hover:bg-accent/90 text-white font-medium transition-colors">
                   {pathPrefix("cv")}
                 </Link>
               </div>
