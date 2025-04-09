@@ -49,25 +49,44 @@
       "title": "Junior Full Stack Developer",
       "company": "Rulex Innovation Labs",
       "companyUrl": "https://www.rulex.ai/",
-      "period": "Nov 2021 - Present",
+      "period": "November 2021 - Present",
       "location": "Genoa, Italy",
       "description": "Within the software development team, I mainly handle messaging between the microservices that make up the application, the exposed REST API, and DevOps activities, such as building and maintaining the software's continuous integration and deployment (CI/CD) pipelines, deployment, and testing of the platform's cloud.\n\nI primarily develop in Python and have gained experience using Azure DevOps Pipelines for building CI/CD pipelines. I also work with JavaScript, although to a lesser extent, mainly for maintaining the Electron application underlying the Rulex Software Platform. In cloud maintenance, I use tools like Terraform and Kubernetes."
     },
     "exerciser": {
       "title": "University Exerciser",
-      "company": "Università degli Studi di Genova",
-      "companyUrl": "https://unige.it/it",
-      "period": "Sep 2019 - Sep 2021",
+      "company": "University of Genoa",
+      "companyUrl": "https://unige.it/",
+      "period": "September 2019 - September 2021",
       "location": "Genoa, Italy",
       "description": "University exerciser position for the General Physics course aimed at students of the Chemical and Electrical Engineering degree programs during the academic years 2019-2020 and 2020-2021. I conducted both frontal lectures and guided exercise sessions."
     },
     "tutor": {
       "title": "University Tutor",
-      "company": "Università degli Studi di Genova",
-      "companyUrl": "https://unige.it/it",
-      "period": "Sep 2017 - Sep 2018",
+      "company": "University of Genoa",
+      "companyUrl": "https://unige.it/",
+      "period": "September 2017 - September 2018",
       "location": "Genoa, Italy",
       "description": "I held a didactic tutoring position for General Physics, Mathematical Analysis, and Linear Algebra for first-year students of the Physics and Mathematics degree courses at the University of Genoa. During this assignment, I was able to improve my communication and relational skills thanks to the interaction with the students."
+    }
+  },
+  "education": {
+    "title": "Education",
+    "bsc": {
+      "degree": "Bachelor of Science in Physics",
+      "institution": "University of Example",
+      "location": "Example City, Country",
+      "period": "September 2015 - June 2018",
+      "description": "Focused on theoretical and experimental physics.",
+      "gpa": "110/110 cum laude"
+    },
+    "msc": {
+      "degree": "Master of Science in Astrophysics",
+      "institution": "Example Institute of Technology",
+      "location": "Another City, Country",
+      "period": "September 2018 - June 2020",
+      "description": "Specialized in computational astrophysics.",
+      "gpa": "110/110 cum laude"
     }
   }
 }

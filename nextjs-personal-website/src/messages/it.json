@@ -34,7 +34,8 @@
     "title": "Progetti",
     "github": "GitHub",
     "demo": "Demo"
-  },  "cv": {
+  },
+  "cv": {
     "title": "Curriculum Vitae",
     "experiences": "Esperienze Professionali",
     "education": "Formazione",
@@ -45,28 +46,47 @@
   },
   "experiences": {
     "rulex": {
-      "title": "Junior Full Stack Developer",
+      "title": "Sviluppatore Full Stack Junior",
       "company": "Rulex Innovation Labs",
       "companyUrl": "https://www.rulex.ai/",
-      "period": "08/11/2021 - Attuale",
+      "period": "Novembre 2021 - Presente",
       "location": "Genova, Italia",
-      "description": "All'interno del team di sviluppo software, mi occupo principalmente delle messaggistica tra i microservizi che compongono l'applicazione, delle API REST esposte e delle attività di DevOps, come la costruzione e il mantenimento delle pipeline di integrazione e distribuzione continua (CI/CD) del software, il deployment e il testing del cloud della piattaforma.\n\nSviluppo principalmente in Python e ho acquisito esperienza nell'utilizzo di Azure DevOps Pipelines per costruire pipeline CI/CD. Lavoro anche con JavaScript, sebbene in misura minore, principalmente per la manutenzione dell'applicazione Electron alla base della Rulex Software Platform. Per la manutenzione cloud utilizzo strumenti come Terraform e Kubernetes."
+      "description": "All'interno del team di sviluppo software, mi occupo principalmente della messaggistica tra i microservizi che compongono l'applicazione, delle API REST esposte e delle attività di DevOps, come la costruzione e il mantenimento delle pipeline di integrazione e distribuzione continua (CI/CD) del software, il deployment e il testing del cloud della piattaforma.\n\nSviluppo principalmente in Python e ho acquisito esperienza nell'utilizzo di Azure DevOps Pipelines per costruire pipeline CI/CD. Lavoro anche con JavaScript, sebbene in misura minore, principalmente per la manutenzione dell'applicazione Electron alla base della Rulex Software Platform. Per la manutenzione cloud utilizzo strumenti come Terraform e Kubernetes."
     },
     "exerciser": {
-      "title": "Esercitatore universitario",
-      "company": "Università degli Studi di Genova",
-      "companyUrl": "https://unige.it/it",
-      "period": "20/09/2019 - 20/09/2021",
+      "title": "Esercitatore Universitario",
+      "company": "Università di Genova",
+      "companyUrl": "https://unige.it/",
+      "period": "Settembre 2019 - Settembre 2021",
       "location": "Genova, Italia",
       "description": "Posizione di esercitatore universitario per il corso di Fisica Generale rivolto a studenti dei corsi di laurea in Ingegneria Chimica ed Elettrica durante gli anni accademici 2019-2020 e 2020-2021. Ho condotto sia lezioni frontali che sessioni guidate di esercizi."
     },
     "tutor": {
-      "title": "Tutor universitario", 
-      "company": "Università degli Studi di Genova",
-      "companyUrl": "https://unige.it/it",
-      "period": "20/09/2017 - 20/09/2018",
+      "title": "Tutor Universitario",
+      "company": "Università di Genova",
+      "companyUrl": "https://unige.it/",
+      "period": "Settembre 2017 - Settembre 2018",
       "location": "Genova, Italia",
       "description": "Ho ricoperto una posizione di tutorato didattico per Fisica Generale, Analisi Matematica e Algebra Lineare per gli studenti del primo anno dei corsi di laurea in Fisica e Matematica dell'Università di Genova. Durante questo incarico ho potuto migliorare le mie capacità comunicative e relazionali grazie all'interazione con gli studenti."
+    }
+  },
+  "education": {
+    "title": "Formazione",
+    "bsc": {
+      "degree": "Laurea in Fisica",
+      "institution": "Università di Esempio",
+      "location": "Città di Esempio, Paese",
+      "period": "Settembre 2015 - Giugno 2018",
+      "description": "Concentrato su fisica teorica e sperimentale.",
+      "gpa": "110/110 e lode"
+    },
+    "msc": {
+      "degree": "Master in Astrofisica",
+      "institution": "Istituto di Tecnologia di Esempio",
+      "location": "Un'altra Città, Paese",
+      "period": "Settembre 2018 - Giugno 2020",
+      "description": "Specializzato in astrofisica computazionale.",
+      "gpa": "110/110 e lode"
     }
   }
 }
