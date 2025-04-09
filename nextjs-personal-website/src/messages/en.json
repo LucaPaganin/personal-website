@@ -4,11 +4,11 @@
     "about": "About Me",
     "projects": "Projects",
     "cv": "CV",
-    "experiences": "Experiences",
-    "education": "Education",
-    "techStack": "Tech Stack",
-    "publications": "Publications",
-    "certifications": "Certifications"
+    "experiences": "Experiences💼",
+    "education": "Education🎓",
+    "techStack": "Tech Stack💻",
+    "publications": "Publications📄",
+    "certifications": "Certifications🏆"
   },
   "languageSelector": {
     "en": "English",
@@ -34,7 +34,8 @@
     "title": "Projects",
     "github": "GitHub",
     "demo": "Live Demo"
-  },  "cv": {
+  },
+  "cv": {
     "title": "Curriculum Vitae",
     "experiences": "Professional Experiences",
     "education": "Education",
@@ -61,7 +62,7 @@
       "description": "University exerciser position for the General Physics course aimed at students of the Chemical and Electrical Engineering degree programs during the academic years 2019-2020 and 2020-2021. I conducted both frontal lectures and guided exercise sessions."
     },
     "tutor": {
-      "title": "University Tutor", 
+      "title": "University Tutor",
       "company": "Università degli Studi di Genova",
       "companyUrl": "https://unige.it/it",
       "period": "Sep 2017 - Sep 2018",
