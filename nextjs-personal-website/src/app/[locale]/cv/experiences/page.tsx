@@ -7,6 +7,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import { FaBriefcase } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useTheme } from "next-themes";
 
 // Experience IDs to determine which experiences to display and their order
 const experienceIds = ["rulex", "exerciser", "tutor"];
@@ -16,6 +17,7 @@ export default function ExperiencesPage() {
   const tCv = useTranslations('cv');
   const tExperiences = useTranslations('experiences');
   const locale = useLocale();
+  const { theme } = useTheme();
   
   return (
     <div className="max-w-6xl mx-auto">
@@ -28,16 +30,25 @@ export default function ExperiencesPage() {
         {tCv('experiences')}
       </motion.h1>
       
-      <VerticalTimeline>
+      <VerticalTimeline
+        lineColor={theme === "dark" ? "white" : "black"}
+      >
         {experienceIds.map((expId) => {
           return (
             <VerticalTimelineElement
               key={expId}
               className="vertical-timeline-element--work"
-              contentStyle={{ background: 'var(--primary-color)', color: '#fff', borderRadius: '12px' }}
+              contentStyle={{ 
+                background: 'var(--primary-color)', 
+                color: 'var(--text-color)', 
+                borderRadius: '12px' 
+              }}
               contentArrowStyle={{ borderRight: '7px solid var(--primary-color)' }}
               date={tExperiences(`${expId}.period`)}
-              iconStyle={{ background: 'var(--primary-color)', color: '#fff' }}
+              iconStyle={{ 
+                background: 'var(--primary-color)', 
+                color: 'var(--icon-color)' 
+              }}
               icon={<FaBriefcase />}
             >
               <h3 className="vertical-timeline-element-title text-xl font-bold">
