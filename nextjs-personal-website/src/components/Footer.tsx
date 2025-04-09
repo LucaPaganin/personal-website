@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -27,6 +28,18 @@ export default function Footer() {
       </div> 
       <div>
         <p>© {new Date().getFullYear()} Luca Paganin - All rights reserved</p>
+      </div>
+      <div className="flex items-center gap-2">
+        <span>Created with</span>
+        <a 
+          href="https://nextjs.org/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="NextJS website"
+          className="inline-flex items-center"
+        >
+          <Image src="/next.svg" alt="NextJS Logo" width={80} height={20} />
+        </a>
       </div>
     </footer>
   );

@@ -1,9 +1,11 @@
 "use client"
 
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { useState } from 'react';
 import { IoLanguage } from 'react-icons/io5';
+import Image from 'next/image';
 
 interface LanguageSwitcherProps {
   locales: string[];
@@ -17,7 +19,13 @@ export default function LanguageSwitcher({
   getLocalizedPath 
 }: LanguageSwitcherProps) {
   const t = useTranslations('languageSelector');
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
+
+  const flags: Record<string, string> = {
+    en: 'https://www.svgrepo.com/show/405643/flag-for-flag-united-kingdom.svg',
+    it: 'https://www.svgrepo.com/show/405517/flag-for-flag-italy.svg',
+  };
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -28,18 +36,16 @@ export default function LanguageSwitcher({
         className="btn btn-ghost btn-circle"
         aria-label="Language selector"
       >
-        <IoLanguage className="h-5 w-5" />
-      </button>
-      {isOpen && (
-        <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-2">
+        <IoLanguage className="h-5 w-5" />      </button> {isOpen && (
+        <ul className="dropdown-content z-[1] menu p-2 shadow rounded-box w-52 mt-2 dark:bg-gray-800 bg-sky-100 dark:text-gray-200 text-blue-800">
           {locales.map((locale) => (
             <li key={locale}>
               <Link 
                 href={getLocalizedPath(locale)}
-                className={currentLocale === locale ? 'active' : ''}
+                className={`${currentLocale === locale ? 'active' : ''} hover:bg-sky-200 dark:hover:bg-gray-700`}
                 onClick={() => setIsOpen(false)}
               >
-                {t(locale)}
+                <Image src={flags[locale]} alt={t(locale)} width={20} height={20} /> {t(locale)}
               </Link>
             </li>
           ))}

@@ -8,7 +8,10 @@
     "education": "Education",
     "techStack": "Tech Stack",
     "publications": "Publications",
-    "certifications": "Certifications"
+    "certifications": "Certifications",
+    "aboutDescription": "Learn more about who I am, my background, and what drives me.",
+    "projectsDescription": "Explore the software projects I've built and contributed to.",
+    "cvDescription": "View my professional experience, education, and technical skills."
   },
   "languageSelector": {
     "en": "English",
@@ -29,13 +32,39 @@
     "title": "Projects",
     "github": "GitHub",
     "demo": "Live Demo"
-  },
-  "cv": {
+  },  "cv": {
     "title": "Curriculum Vitae",
     "experiences": "Professional Experiences",
     "education": "Education",
     "techStack": "Technical Skills",
     "publications": "Publications",
-    "certifications": "Certifications"
+    "certifications": "Certifications",
+    "visitCompanyWebsite": "Visit Company Website"
+  },
+  "experiences": {
+    "rulex": {
+      "title": "Junior Full Stack Developer",
+      "company": "Rulex Innovation Labs",
+      "companyUrl": "https://www.rulex.ai/",
+      "period": "Nov 2021 - Present",
+      "location": "Genoa, Italy",
+      "description": "Within the software development team, I mainly handle messaging between the microservices that make up the application, the exposed REST API, and DevOps activities, such as building and maintaining the software's continuous integration and deployment (CI/CD) pipelines, deployment, and testing of the platform's cloud.\n\nI primarily develop in Python and have gained experience using Azure DevOps Pipelines for building CI/CD pipelines. I also work with JavaScript, although to a lesser extent, mainly for maintaining the Electron application underlying the Rulex Software Platform. In cloud maintenance, I use tools like Terraform and Kubernetes."
+    },
+    "exerciser": {
+      "title": "University Exerciser",
+      "company": "Università degli Studi di Genova",
+      "companyUrl": "https://unige.it/it",
+      "period": "Sep 2019 - Sep 2021",
+      "location": "Genoa, Italy",
+      "description": "University exerciser position for the General Physics course aimed at students of the Chemical and Electrical Engineering degree programs during the academic years 2019-2020 and 2020-2021. I conducted both frontal lectures and guided exercise sessions."
+    },
+    "tutor": {
+      "title": "University Tutor", 
+      "company": "Università degli Studi di Genova",
+      "companyUrl": "https://unige.it/it",
+      "period": "Sep 2017 - Sep 2018",
+      "location": "Genoa, Italy",
+      "description": "I held a didactic tutoring position for General Physics, Mathematical Analysis, and Linear Algebra for first-year students of the Physics and Mathematics degree courses at the University of Genoa. During this assignment, I was able to improve my communication and relational skills thanks to the interaction with the students."
+    }
   }
 }

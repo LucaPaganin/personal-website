@@ -1,33 +1,33 @@
-"use client"
+"use client";
 
-import { useTranslations, useLocale } from 'next-intl';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
-import ThemeSwitcher from '@/components/ThemeSwitcher';
-import { useState, useEffect } from 'react';
-import { locales } from '@/i18n';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { useState, useEffect } from "react";
+import { locales } from "@/i18n";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
   // Safe access to translations with fallback
-  const safeT = (key: string, defaultValue: string = '') => {
+  const safeT = (key: string, defaultValue: string = "") => {
     try {
       return t(key);
     } catch (error) {
       return defaultValue;
     }
   };
-    // Wrap hooks in try-catch for safer client-side rendering
+  // Wrap hooks in try-catch for safer client-side rendering
   let t: (key: string) => string;
   let locale: string;
   try {
-    t = useTranslations('navigation');
+    t = useTranslations("navigation");
     locale = useLocale();
   } catch (error) {
     // Default fallback if hooks fail
     t = (key: string): string => key;
-    locale = 'en';
+    locale = "en";
   }
 
   const pathname = usePathname();
@@ -41,8 +41,10 @@ export default function Navbar() {
 
   // Gets the path without the locale prefix
   const getPathWithoutLocale = () => {
-    const pathSegments = pathname.split('/').filter(Boolean);
-    return pathSegments.length > 1 ? `/${pathSegments.slice(1).join('/')}` : '/';
+    const pathSegments = pathname.split("/").filter(Boolean);
+    return pathSegments.length > 1
+      ? `/${pathSegments.slice(1).join("/")}`
+      : "/";
   };
 
   // Gets the current path with a different locale
@@ -61,15 +63,17 @@ export default function Navbar() {
   };
   // Only render UI elements after client-side hydration is complete
   if (!mounted) {
-    return <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50 rounded-b-lg">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <span className="text-xl font-bold">Luca Paganin</span>
+    return (
+      <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50 rounded-b-lg">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex-shrink-0">
+              <span className="text-xl font-bold">Luca Paganin</span>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>;
+      </nav>
+    );
   }
   return (
     <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50 rounded-b-lg">
@@ -80,77 +84,111 @@ export default function Navbar() {
             <Link href={`/${locale}`} className="text-xl font-bold">
               Luca Paganin
             </Link>
-          </div>          {/* Desktop Navigation */}
+          </div>{" "}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            {" "}
             <Link
               href={`/${locale}`}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                pathname === `/${locale}` ? 'bg-primary text-white' : 'hover:bg-base-300'
+                pathname === `/${locale}`
+                  ? "bg-blue-700 text-white"
+                  : "hover:bg-blue-500"
               }`}
             >
-              {t('home')}
+              {t("home")}
             </Link>
             <Link
               href={`/${locale}/about`}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                pathname === `/${locale}/about` ? 'bg-primary text-white' : 'hover:bg-base-300'
+                pathname === `/${locale}/about`
+                  ? "bg-blue-700 text-white"
+                  : "hover:bg-blue-500"
               }`}
             >
-              {t('about')}
+              {t("about")}
             </Link>
             <Link
               href={`/${locale}/projects`}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                pathname === `/${locale}/projects` ? 'bg-primary text-white' : 'hover:bg-base-300'
+                pathname === `/${locale}/projects`
+                  ? "bg-blue-700 text-white"
+                  : "hover:bg-blue-500"
               }`}
             >
-              {t('projects')}
-            </Link>
-            
+              {" "}
+              {t("projects")}
+            </Link>{" "}
             {/* CV Dropdown */}
-            <div className="dropdown dropdown-hover">
-              <div tabIndex={0} className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer ${
-                pathname.includes(`/${locale}/cv`) ? 'bg-primary text-white' : 'hover:bg-base-300'
-              }`}>
-                {t('cv')}
-              </div>
-              <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <div className="relative group">
+              <div
+                className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer ${
+                  pathname.includes(`/${locale}/cv`)
+                    ? "bg-blue-700 text-white"
+                    : "hover:bg-blue-500"
+                }`}
+              >
+                {t("cv")}{" "}
+              </div>{" "}
+              <ul className="absolute hidden group-hover:block z-[1] mt-1 p-2 shadow bg-sky-100 dark:bg-gray-800 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors">
+                {" "}
                 <li>
-                  <Link href={`/${locale}/cv/experiences`} onClick={closeMenu}>
-                    {t('experiences')}
+                  <Link
+                    href={`/${locale}/cv/experiences`}
+                    onClick={closeMenu}
+                    className="dropdown-menu-link"
+                  >
+                    {t("experiences")}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${locale}/cv/education`} onClick={closeMenu}>
-                    {t('education')}
+                  <Link
+                    href={`/${locale}/cv/education`}
+                    onClick={closeMenu}
+                    className="dropdown-menu-link"
+                  >
+                    {t("education")}
+                  </Link>
+                </li>{" "}
+                <li>
+                  <Link
+                    href={`/${locale}/cv/tech-stack`}
+                    onClick={closeMenu}
+                    className="dropdown-menu-link"
+                  >
+                    {t("techStack")}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${locale}/cv/tech-stack`} onClick={closeMenu}>
-                    {t('techStack')}
+                  <Link
+                    href={`/${locale}/cv/publications`}
+                    onClick={closeMenu}
+                    className="dropdown-menu-link"
+                  >
+                    {t("publications")}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${locale}/cv/publications`} onClick={closeMenu}>
-                    {t('publications')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${locale}/cv/certifications`} onClick={closeMenu}>
-                    {t('certifications')}
+                  <Link
+                    href={`/${locale}/cv/certifications`}
+                    onClick={closeMenu}
+                    className="dropdown-menu-link"
+                  >
+                    {t("certifications")}
                   </Link>
                 </li>
               </ul>
             </div>
-          </div>          {/* Right side - Language Switcher and Theme Switcher */}
+          </div>{" "}
+          {/* Right side - Language Switcher and Theme Switcher */}
           <div className="flex items-center space-x-4">
             <ThemeSwitcher />
-            <LanguageSwitcher 
-              locales={locales} 
-              currentLocale={locale} 
-              getLocalizedPath={getLocalizedPath} 
+            <LanguageSwitcher
+              locales={locales}
+              currentLocale={locale}
+              getLocalizedPath={getLocalizedPath}
             />
-            
+
             {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
@@ -172,74 +210,79 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
+            {" "}
             <Link
               href={`/${locale}`}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === `/${locale}` ? 'bg-primary text-white' : 'hover:bg-base-300'
+                pathname === `/${locale}`
+                  ? "bg-blue-700 text-white"
+                  : "hover:bg-blue-100 dark:hover:bg-blue-800"
               }`}
               onClick={closeMenu}
             >
-              {t('home')}
+              {t("home")}
             </Link>
             <Link
               href={`/${locale}/about`}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === `/${locale}/about` ? 'bg-primary text-white' : 'hover:bg-base-300'
+                pathname === `/${locale}/about`
+                  ? "bg-blue-700 text-white"
+                  : "hover:bg-blue-100 dark:hover:bg-blue-800"
               }`}
               onClick={closeMenu}
             >
-              {t('about')}
+              {t("about")}
             </Link>
             <Link
               href={`/${locale}/projects`}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === `/${locale}/projects` ? 'bg-primary text-white' : 'hover:bg-base-300'
+                pathname === `/${locale}/projects`
+                  ? "bg-blue-700 text-white"
+                  : "hover:bg-blue-100 dark:hover:bg-blue-800"
               }`}
               onClick={closeMenu}
             >
-              {t('projects')}
+              {t("projects")}
             </Link>
-            
-            {/* CV Section Title */}
-            <div className="px-3 py-2 text-base font-medium border-t border-base-300 mt-2 pt-2">
-              {t('cv')}
-            </div>
-            
+            {/* CV Section Title */}{" "}
+            <div className="px-3 py-2 text-base font-medium border-t border-gray-200 dark:border-gray-700 mt-2 pt-2">
+              {t("cv")}
+            </div>{" "}
             {/* CV Subsections */}
             <Link
               href={`/${locale}/cv/experiences`}
-              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-base-300"
+              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               onClick={closeMenu}
             >
-              {t('experiences')}
+              {t("experiences")}
             </Link>
             <Link
               href={`/${locale}/cv/education`}
-              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-base-300"
+              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               onClick={closeMenu}
             >
-              {t('education')}
+              {t("education")}
             </Link>
             <Link
               href={`/${locale}/cv/tech-stack`}
-              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-base-300"
+              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               onClick={closeMenu}
             >
-              {t('techStack')}
+              {t("techStack")}
             </Link>
             <Link
               href={`/${locale}/cv/publications`}
-              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-base-300"
+              className="mobile-menu-link"
               onClick={closeMenu}
             >
-              {t('publications')}
+              {t("publications")}
             </Link>
             <Link
               href={`/${locale}/cv/certifications`}
-              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-base-300"
+              className="mobile-menu-link"
               onClick={closeMenu}
             >
-              {t('certifications')}
+              {t("certifications")}
             </Link>
           </div>
         </div>

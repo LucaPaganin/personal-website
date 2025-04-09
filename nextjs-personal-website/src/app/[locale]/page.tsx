@@ -40,7 +40,7 @@ export default function HomePage() {
               <FaUser className="text-5xl mb-4 text-primary" />
               <h2 className="card-title">{t("about")}</h2>{" "}
               <p>
-                Learn more about who I am, my background, and what drives me.
+                {t("aboutDescription")}
               </p>{" "}
               <div className="card-actions">
                 <Link href="/about" className="btn btn-primary">
@@ -61,7 +61,7 @@ export default function HomePage() {
               <FaCode className="text-5xl mb-4 text-secondary" />
               <h2 className="card-title">{t("projects")}</h2>{" "}
               <p>
-                Explore the software projects I've built and contributed to.
+                {t("projectsDescription")}
               </p>{" "}
               <div className="card-actions">
                 <Link href="/projects" className="btn btn-secondary">
@@ -82,8 +82,7 @@ export default function HomePage() {
               <FaFileAlt className="text-5xl mb-4 text-accent" />
               <h2 className="card-title">{t("cv")}</h2>{" "}
               <p>
-                View my professional experience, education, and technical
-                skills.
+                {t("cvDescription")}
               </p>{" "}
               <div className="card-actions">
                 <Link href="/cv/experiences" className="btn btn-accent">

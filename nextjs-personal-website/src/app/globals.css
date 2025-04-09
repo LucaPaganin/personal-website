@@ -53,3 +53,16 @@ a, button {
 .card:hover {
   transform: translateY(-5px);
 }
+
+/* Custom dropdown menu link styling */
+.dropdown-menu-link {
+  @apply hover:bg-sky-200 dark:hover:bg-gray-700 transition-colors;
+  color: inherit;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Custom mobile menu link styling */
+.mobile-menu-link {
+  @apply block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
+}
