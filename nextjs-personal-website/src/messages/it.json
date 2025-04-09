@@ -26,6 +26,8 @@
   },
   "about": {
     "title": "Chi Sono",
+    "subtitle": "In breve",
+    "briefDescription": "Sono una persona curiosa, con una forte passione per l'apprendimento continuo e la scoperta di nuove tecnologie.",
     "photoGallery": "Galleria Fotografica"
   },
   "projects": {

@@ -26,6 +26,8 @@
   },
   "about": {
     "title": "About Me",
+    "subtitle": "In a nutshell",
+    "briefDescription": "I am a curious person, with a strong passion for continuous learning and discovering new technologies.",
     "photoGallery": "Photo Gallery"
   },
   "projects": {

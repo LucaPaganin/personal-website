@@ -1,8 +1,20 @@
+"use client";
+
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
-  return (    <footer className="p-6 bg-base-200 text-base-content">
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <footer className="p-6 bg-base-200 text-base-content">
       <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-6xl mx-auto gap-4">
         <div className="grid grid-flow-col gap-4">
           <a
@@ -38,7 +50,14 @@ export default function Footer() {
             aria-label="NextJS website"
             className="inline-flex items-center"
           >
-            <Image src="/next.svg" alt="NextJS Logo" width={80} height={20} />
+            {mounted && (
+              <Image
+                src={theme === "dark" ? "/next-dark.svg" : "/next.svg"}
+                alt="NextJS Logo"
+                width={80}
+                height={20}
+              />
+            )}
           </a>
         </div>
       </div>
