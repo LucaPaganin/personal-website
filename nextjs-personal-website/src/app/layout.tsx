@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { locales } from '../i18n';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,11 +20,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {  return (
-    <html lang="en" data-theme="light" className="h-full">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={`${inter.className} min-h-screen flex flex-col bg-base-100 text-base-content`}>{children}</body>
+      <body className={`${inter.className} min-h-screen flex flex-col bg-base-100 text-base-content`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
