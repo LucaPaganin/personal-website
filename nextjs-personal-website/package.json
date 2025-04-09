@@ -33,9 +33,11 @@
     "@types/react-slick": "^0.23.13",
     "@types/react-vertical-timeline-component": "^3.3.6",
     "autoprefixer": "^10.4.21",
+    "daisyui": "latest",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "tailwindcss": "^4",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
 }
