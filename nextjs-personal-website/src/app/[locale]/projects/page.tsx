@@ -22,13 +22,13 @@ export default function ProjectsPage() {
       name: "SEYFERT: the SurvEY FishEr foRecast Tool",
       description: "A Python tool for Fisher matrix forecasting of cosmological surveys.",
       github_link: "https://github.com/LucaPaganin/SEYFERT",
-      technologies: ["Python", "NumPy", "SciPy"]
+      technologies: ["Python", "NumPy", "SciPy", "Pandas", "Matplotlib"]
     },
     {
       name: "Solar System Simulator",
-      description: "A simulator for the dynamics of the solar system.",
+      description: "A simulator for the dynamics of the solar system, including a three dimensional animation of the planetary orbits.",
       github_link: "https://github.com/LucaPaganin/SolarSystem/",
-      technologies: ["C++", "OpenGL"]
+      technologies: ["C++", "Python", "Dash"]
     },
     // Add more projects as needed
   ];
@@ -69,19 +69,19 @@ export default function ProjectsPage() {
         {projects.map((project, index) => (
           <motion.div 
             key={index}
-            className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow"
+            className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow rounded-lg dark:bg-gray-800 px-6 py-4"
             variants={item}
           >
             <div className="card-body">
-              <h2 className="card-title">{project.name}</h2>
+              <h2 className="card-title text-gray-900 dark:text-gray-100">{project.name}</h2>
               {project.description && (
-                <p className="text-base-content/80">{project.description}</p>
+                <p className="text-base-content/80 dark:text-gray-300">{project.description}</p>
               )}
               
               {project.technologies && (
                 <div className="flex flex-wrap gap-2 mt-2">
                   {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="badge badge-primary">{tech}</span>
+                    <span key={idx} className="badge badge-primary bg-blue-500 text-white rounded-full px-3 py-1">{tech}</span>
                   ))}
                 </div>
               )}
@@ -91,9 +91,9 @@ export default function ProjectsPage() {
                   href={project.github_link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="btn btn-primary btn-sm"
+                  className="btn btn-primary btn-sm flex items-center"
                 >
-                  <FaGithub className="mr-2" /> {t('github')}
+                  <FaGithub className="mr-2" /> Github repository
                 </a>
                 
                 {project.demo_link && (

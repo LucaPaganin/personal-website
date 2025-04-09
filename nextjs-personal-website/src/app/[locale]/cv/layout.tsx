@@ -27,25 +27,6 @@ export default function CVLayout({
         {t('title')}
       </h1>
       
-      {/* CV Navigation Tabs (desktop and mobile) */}
-      <div className="tabs tabs-boxed flex mb-6 overflow-x-auto">
-        {cvSections.map((section) => {
-          const sectionPath = pathname.split('/').slice(0, -1).join('/') + '/' + section.path;
-          const isActive = pathname === sectionPath;
-          
-          return (
-            <Link 
-              key={section.path} 
-              href={sectionPath}
-              className={`tab tab-lg ${isActive ? 'tab-active' : ''} whitespace-nowrap`}
-            >
-              <span className="mr-2">{section.icon}</span>
-              {t(section.name)}
-            </Link>
-          );
-        })}
-      </div>
-      
       {/* Main content */}
       <div className="mt-6">
         {children}
