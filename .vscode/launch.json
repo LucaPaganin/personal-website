@@ -4,28 +4,12 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-      {
-          "name": "Debug Next.js App",
-          "type": "chrome",
-          "request": "launch",
-          "url": "http://localhost:3000",
-          "webRoot": "${workspaceFolder}"
-      },
         {
-            "name": "Python Debugger: Flask",
-            "type": "debugpy",
+            "name": "Launch Chrome",
             "request": "launch",
-            "module": "flask",
-            "env": {
-                "FLASK_APP": "app.py",
-                "FLASK_DEBUG": "1"
-            },
-            "args": [
-                "run",
-                "--no-debugger",
-                "--no-reload"
-            ],
-            "jinja": true
+            "type": "chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

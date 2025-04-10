@@ -1,1 +1,0 @@
-University exerciser position for the General Physics course aimed at students of the Chemical and Electrical Engineering degree programs during the academic years 2019-2020 and 2020-2021. I conducted both frontal lectures and guided exercise sessions.
