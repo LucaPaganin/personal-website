@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import {
   VerticalTimeline,
@@ -9,13 +9,37 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { FaGraduationCap } from "react-icons/fa";
 import { useTheme } from "next-themes";
-
-// Education IDs to determine which entries to display and their order
-const educationIds = ["bsc", "msc"];
+import { useState, useEffect } from "react";
 
 export default function EducationPage() {
   const tEducation = useTranslations("education");
+  const locale = useLocale();
   const { theme } = useTheme();
+  
+  // State to store the education IDs fetched from the API
+  const [educationIds, setEducationIds] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  
+  // Fetch education IDs from our API endpoint
+  useEffect(() => {
+    const fetchEducationIds = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/education?locale=${locale}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch education IDs');
+        }
+        const data = await response.json();
+        setEducationIds(data.educationIds);
+      } catch (error) {
+        console.error('Error fetching education IDs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchEducationIds();
+  }, [locale]);
 
   return (
     <div className="max-w-6xl mx-auto">

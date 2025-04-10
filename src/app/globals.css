@@ -59,10 +59,12 @@ a, button {
 
 /* Custom dropdown menu link styling */
 .dropdown-menu-link {
-  @apply hover:bg-sky-200 dark:hover:bg-gray-700 transition-colors;
+  @apply hover:bg-sky-200/70 dark:hover:bg-gray-700/70 transition-colors;
   color: inherit;
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.875rem;
+  margin: 0.3rem 0;
+  display: block;
 }
 
 /* Custom mobile menu link styling */

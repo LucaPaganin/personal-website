@@ -45,13 +45,21 @@
     "visitCompanyWebsite": "Visita il sito web"
   },
   "experiences": {
+    "rina": {
+      "title": "Sviluppatore Backend Cloud",
+      "company": "RINA S.p.A.",
+      "companyUrl": "https://www.rina.org",
+      "period": "Novembre 2024 - Presente",
+      "location": "Genova, Italia",
+      "description": "Mi occupo dello sviluppo del backend serverless in Python su Azure Functions per la piattaforma di certificazione digitale di RINA, rivolta principalmente alle acciaierie clienti che vogliono certificare il loro impegno di sostenibilità ambientale."
+    },
     "rulex": {
-      "title": "Sviluppatore Full Stack Junior",
+      "title": "Sviluppatore Full Stack",
       "company": "Rulex Innovation Labs",
       "companyUrl": "https://www.rulex.ai/",
-      "period": "Novembre 2021 - Presente",
+      "period": "Novembre 2021 - Ottobre 2024",
       "location": "Genova, Italia",
-      "description": "All'interno del team di sviluppo software, mi occupo principalmente della messaggistica tra i microservizi che compongono l'applicazione, delle API REST esposte e delle attività di DevOps, come la costruzione e il mantenimento delle pipeline di integrazione e distribuzione continua (CI/CD) del software, il deployment e il testing del cloud della piattaforma.\n\nSviluppo principalmente in Python e ho acquisito esperienza nell'utilizzo di Azure DevOps Pipelines per costruire pipeline CI/CD. Lavoro anche con JavaScript, sebbene in misura minore, principalmente per la manutenzione dell'applicazione Electron alla base della Rulex Software Platform. Per la manutenzione cloud utilizzo strumenti come Terraform e Kubernetes."
+      "description": "Mi sono occupato di sviluppo software con focus su comunicazione tra microservizi, API REST e attività DevOps (CI/CD, deployment e testing cloud). Ho Lavorato principalmente con Python e Azure DevOps Pipelines, e svolto manutenzione in JavaScript dell'applicazione Electron della piattaforma Rulex Platform."
     },
     "exerciser": {
       "title": "Esercitatore Universitario",
@@ -67,7 +75,7 @@
       "companyUrl": "https://unige.it/",
       "period": "Settembre 2017 - Settembre 2018",
       "location": "Genova, Italia",
-      "description": "Ho ricoperto una posizione di tutorato didattico per Fisica Generale, Analisi Matematica e Algebra Lineare per gli studenti del primo anno dei corsi di laurea in Fisica e Matematica dell'Università di Genova. Durante questo incarico ho potuto migliorare le mie capacità comunicative e relazionali grazie all'interazione con gli studenti."
+      "description": "Ho ricoperto una posizione di tutorato didattico per Fisica Generale, Analisi Matematica e Algebra Lineare per gli studenti del primo anno dei corsi di laurea in Fisica e Matematica dell'Università di Genova."
     }
   },
   "education": {

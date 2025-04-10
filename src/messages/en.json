@@ -45,13 +45,21 @@
     "visitCompanyWebsite": "Visit Company Website"
   },
   "experiences": {
+    "rina": {
+      "title": "Cloud Backend Developer",
+      "company": "RINA S.p.A.",
+      "companyUrl": "https://www.rina.org",
+      "period": "November 2024 - Present",
+      "location": "Genoa, Italy",
+      "description": "I'm responsible for developing the serverless backend in Python on Azure Functions for RINA's digital certification platform, primarily aimed at steel mill clients who want to certify their environmental sustainability commitments."
+    },
     "rulex": {
-      "title": "Junior Full Stack Developer",
+      "title": "Full Stack Developer",
       "company": "Rulex Innovation Labs",
       "companyUrl": "https://www.rulex.ai/",
-      "period": "November 2021 - Present",
+      "period": "November 2021 - October 2024",
       "location": "Genoa, Italy",
-      "description": "Within the software development team, I mainly handle messaging between the microservices that make up the application, the exposed REST API, and DevOps activities, such as building and maintaining the software's continuous integration and deployment (CI/CD) pipelines, deployment, and testing of the platform's cloud.\n\nI primarily develop in Python and have gained experience using Azure DevOps Pipelines for building CI/CD pipelines. I also work with JavaScript, although to a lesser extent, mainly for maintaining the Electron application underlying the Rulex Software Platform. In cloud maintenance, I use tools like Terraform and Kubernetes."
+      "description": "I was responsible for software development with a focus on communication between microservices, REST APIs, and DevOps activities (CI/CD, deployment, and cloud testing). I worked primarily with Python and Azure DevOps Pipelines, and performed JavaScript maintenance for the Electron application of the Rulex Platform."
     },
     "exerciser": {
       "title": "University Exerciser",
@@ -67,7 +75,7 @@
       "companyUrl": "https://unige.it/",
       "period": "September 2017 - September 2018",
       "location": "Genoa, Italy",
-      "description": "I held a didactic tutoring position for General Physics, Mathematical Analysis, and Linear Algebra for first-year students of the Physics and Mathematics degree courses at the University of Genoa. During this assignment, I was able to improve my communication and relational skills thanks to the interaction with the students."
+      "description": "I held a didactic tutoring position for General Physics, Mathematical Analysis, and Linear Algebra for first-year students of the Physics and Mathematics degree courses at the University of Genoa."
     }
   },
   "education": {

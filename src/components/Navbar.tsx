@@ -118,18 +118,36 @@ export default function Navbar() {
             >
               {" "}
               {t("projects")}
-            </Link>{" "}            {/* CV Dropdown */}
+            </Link>{" "}
+            {/* CV Dropdown */}
             <div className="relative group">
+              {" "}
               <div
-                className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer ${
+                className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer flex items-center space-x-1 ${
                   pathname.includes(`/${locale}/cv`)
                     ? "bg-blue-700 text-white"
                     : "hover:bg-blue-500"
                 }`}
               >
-                {t("cv")}{" "}
+                {" "}
+                <span>{t("cv")}</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 ml-1 inline-block transform transition-transform duration-300 group-hover:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  style={{ display: "inline-block", verticalAlign: "middle" }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 15l7-7 7 7"
+                  />
+                </svg>
               </div>{" "}
-              <ul className="absolute hidden group-hover:block hover:block z-[1] mt-0 p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors">
+              <ul className="absolute hidden group-hover:block hover:block z-[1] mt-[13px] p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors">
                 {" "}
                 <li>
                   <Link

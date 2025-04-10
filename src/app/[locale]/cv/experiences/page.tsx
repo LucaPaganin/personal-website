@@ -8,9 +8,7 @@ import { FaBriefcase } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useTheme } from "next-themes";
-
-// Experience IDs to determine which experiences to display and their order
-const experienceIds = ["rulex", "exerciser", "tutor"];
+import { useState, useEffect, useMemo } from 'react';
 
 export default function ExperiencesPage() {
   // Use client-side hooks
@@ -18,6 +16,31 @@ export default function ExperiencesPage() {
   const tExperiences = useTranslations('experiences');
   const locale = useLocale();
   const { theme } = useTheme();
+  
+  // State to store the experience IDs fetched from the API
+  const [experienceIds, setExperienceIds] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  
+  // Fetch experience IDs from our API endpoint
+  useEffect(() => {
+    const fetchExperienceIds = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/experiences?locale=${locale}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch experience IDs');
+        }
+        const data = await response.json();
+        setExperienceIds(data.experienceIds);
+      } catch (error) {
+        console.error('Error fetching experience IDs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchExperienceIds();
+  }, [locale]);
   
   return (
     <div className="max-w-6xl mx-auto">
