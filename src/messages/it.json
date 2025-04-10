@@ -23,7 +23,8 @@
     "aboutDescription": "Scopri di più su chi sono, il mio background e cosa mi motiva.",
     "cvDescription": "Visualizza la mia esperienza professionale, istruzione e competenze tecniche.",
     "projectsDescription": "Esplora i progetti software che ho creato e a cui ho contribuito."
-  },  "about": {
+  },
+  "about": {
     "title": "Chi Sono",
     "subtitle": "In breve",
     "briefDescription": "Sono una persona curiosa, con una forte passione per l'apprendimento continuo e la scoperta di nuove tecnologie.",
@@ -95,19 +96,27 @@
     "title": "Formazione",
     "bsc": {
       "degree": "Laurea in Fisica",
-      "institution": "Università di Esempio",
-      "location": "Città di Esempio, Paese",
-      "period": "Settembre 2015 - Giugno 2018",
+      "institution": "Università di Genova",
+      "location": "Genova, Italia",
+      "period": "Settembre 2013 - Settembre 2016",
       "description": "Concentrato su fisica teorica e sperimentale.",
       "gpa": "110/110 e lode"
     },
     "msc": {
-      "degree": "Master in Astrofisica",
-      "institution": "Istituto di Tecnologia di Esempio",
-      "location": "Un'altra Città, Paese",
-      "period": "Settembre 2018 - Giugno 2020",
-      "description": "Specializzato in astrofisica computazionale.",
+      "degree": "Laurea Magistrale in Fisica Teorica",
+      "institution": "Università di Genova",
+      "location": "Genova, Italia",
+      "period": "Settembre 2016 - Ottobre 2018",
+      "description": "Specializzato in fisica teorica, con focus sulla teoria quantistica dei campi.",
       "gpa": "110/110 e lode"
+    },
+    "phd": {
+      "degree": "Dottorato in Fisica, Cosmologia",
+      "institution": "Università di Genova",
+      "location": "Genova, Italia",
+      "period": "Novembre 2018 - Novembre 2021",
+      "description": "Condotto ricerca sui vincoli dei parametri cosmologici utilizzando il formalismo 6x2pt, che combina weak lensing, clustering galattico e le loro correlazioni incrociate per migliorare i vincoli sui parametri dell'equazione di stato dell'energia oscura.",
+      "gpa": "N/A"
     }
   }
 }

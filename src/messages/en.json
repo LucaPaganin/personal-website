@@ -96,19 +96,27 @@
     "title": "Education",
     "bsc": {
       "degree": "Bachelor of Science in Physics",
-      "institution": "University of Example",
-      "location": "Example City, Country",
-      "period": "September 2015 - June 2018",
+      "institution": "University of Genoa",
+      "location": "Genoa, Italy",
+      "period": "September 2013 - September 2016",
       "description": "Focused on theoretical and experimental physics.",
       "gpa": "110/110 cum laude"
     },
     "msc": {
-      "degree": "Master of Science in Astrophysics",
-      "institution": "Example Institute of Technology",
-      "location": "Another City, Country",
-      "period": "September 2018 - June 2020",
-      "description": "Specialized in computational astrophysics.",
+      "degree": "Master of Science in Theoretical Physics",
+      "institution": "University of Genoa",
+      "location": "Genoa, Italy",
+      "period": "September 2016 - October 2018",
+      "description": "Specialized in theoretical physics, with a focus on quantum field theory.",
       "gpa": "110/110 cum laude"
+    },
+    "phd": {
+      "degree": "PhD in Physics, Cosmology",
+      "institution": "University of Genoa",
+      "location": "Genoa, Italy",
+      "period": "November 2018 - November 2021",
+      "description": "Conducted research on cosmological parameter constraints using the 6x2pt formalism, which combines weak lensing, galaxy clustering, and their cross-correlations to improve constraints on dark energy equation of state parameters.",
+      "gpa": "N/A"
     }
   }
 }
