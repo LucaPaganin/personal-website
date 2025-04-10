@@ -1,12 +1,29 @@
-import { getTranslations } from 'next-intl/server';
-import { motion } from 'framer-motion';
-import fs from 'fs';
-import path from 'path';
-import { 
-  FaPython, FaJs, FaReact, FaDocker, 
-  FaDatabase, FaCode, FaServer, FaTools 
-} from 'react-icons/fa';
-import { SiTypescript, SiNextdotjs, SiFlask, SiDjango, SiNumpy, SiTensorflow } from 'react-icons/si';
+"use client";
+
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import {
+  FaPython,
+  FaJs,
+  FaReact,
+  FaDocker,
+  FaDatabase,
+  FaCode,
+  FaServer,
+  FaTools,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiFlask,
+  SiDjango,
+  SiNumpy,
+  SiPandas,
+  SiScipy,
+} from "react-icons/si";
+
+
+import { useState } from "react";
 
 // Define the Skill type
 interface Skill {
@@ -16,61 +33,53 @@ interface Skill {
   icon?: string;
 }
 
-// Function to get skills data
-async function getSkills(): Promise<Skill[]> {
-  try {
-    // Get skills from the Next.js data folder
-    const filePath = path.join(process.cwd(), 'src', 'data', 'json', 'skills.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContents);
-  } catch (error) {
-    console.error('Error loading skills:', error);
-    // Return sample skills if the data cannot be loaded
-    return [
-      { name: "Python", category: "Languages", level: 5 },
-      { name: "JavaScript", category: "Languages", level: 4 },
-      { name: "TypeScript", category: "Languages", level: 4 },
-      { name: "SQL", category: "Databases", level: 4 },
-      { name: "Docker", category: "Tools", level: 3 },
-      { name: "Flask", category: "Frameworks", level: 4 },
-      { name: "Django", category: "Frameworks", level: 3 },
-      { name: "React", category: "Frontend", level: 3 },
-      { name: "Next.js", category: "Frontend", level: 3 },
-      { name: "NumPy", category: "Libraries", level: 5 },
-      { name: "TensorFlow", category: "Libraries", level: 4 }
-    ];
-  }
-}
+// Hardcoded skills data
+const skills: Skill[] = [
+  { name: "Python", category: "Languages", level: 5 },
+  { name: "JavaScript", category: "Languages", level: 3 },
+  { name: "TypeScript", category: "Languages", level: 2 },
+  { name: "SQL", category: "Databases", level: 2 },
+  { name: "Azure Cosmos DB", category: "Databases", level: 4 },
+  { name: "Docker", category: "Tools", level: 4 },
+  { name: "Azure DevOps Pipelines", category: "Tools", level: 5 },
+  { name: "Flask", category: "Frameworks", level: 3 },
+  { name: "React", category: "Frontend", level: 3 },
+  { name: "Next.js", category: "Frontend", level: 2 },
+  { name: "NumPy", category: "Libraries", level: 5 },
+  { name: "Pandas", category: "Libraries", level: 5 },
+  { name: "SciPy", category: "Libraries", level: 4 },
+];
 
 // Map skill names to icons
 const skillIconMap: Record<string, React.ReactNode> = {
-  "Python": <FaPython />,
-  "JavaScript": <FaJs />,
-  "TypeScript": <SiTypescript />,
-  "SQL": <FaDatabase />,
-  "Docker": <FaDocker />,
-  "Flask": <SiFlask />,
-  "Django": <SiDjango />,
-  "React": <FaReact />,
+  Python: <FaPython />,
+  JavaScript: <FaJs />,
+  TypeScript: <SiTypescript />,
+  SQL: <FaDatabase />,
+  Docker: <FaDocker />,
+  Flask: <SiFlask />,
+  Django: <SiDjango />,
+  React: <FaReact />,
   "Next.js": <SiNextdotjs />,
-  "NumPy": <SiNumpy />,
-  "TensorFlow": <SiTensorflow />
+  NumPy: <SiNumpy />,
+  Pandas: <SiPandas />,
+  SciPy: <SiScipy />
 };
 
 // Map category names to icons
 const categoryIconMap: Record<string, React.ReactNode> = {
-  "Languages": <FaCode />,
-  "Databases": <FaDatabase />,
-  "Tools": <FaTools />,
-  "Frameworks": <FaServer />,
-  "Frontend": <FaReact />,
-  "Libraries": <FaCode />
+  Languages: <FaCode />,
+  Databases: <FaDatabase />,
+  Tools: <FaTools />,
+  Frameworks: <FaServer />,
+  Frontend: <FaReact />,
+  Libraries: <FaCode />,
 };
 
-export default async function TechStackPage() {
-  const t = await getTranslations('cv');
-  const skills = await getSkills();
-  
+export default function TechStackPage() {
+  const t = useTranslations("cv");
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+
   // Group skills by category
   const skillsByCategory = skills.reduce((acc, skill) => {
     const category = skill.category;
@@ -80,77 +89,104 @@ export default async function TechStackPage() {
     acc[category].push(skill);
     return acc;
   }, {} as Record<string, Skill[]>);
-  
+
   // Sort categories by name
   const sortedCategories = Object.keys(skillsByCategory).sort();
-  
+
   // Animation variants
   const container = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, height: 0 },
     show: {
       opacity: 1,
+      height: "auto",
       transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-  
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+        staggerChildren: 0.1,
+        height: { duration: 0.3 }
+      },
+    },
   };
 
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+  
+  const arrowVariants = {
+    initial: { rotate: 0 },
+    hover: { rotate: 180, transition: { duration: 0.3 } }
+  };
   return (
     <div className="max-w-6xl mx-auto">
-      <motion.h1 
+      <motion.h1
         className="text-4xl font-bold mb-8 text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {t('techStack')}
-      </motion.h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {t("techStack")}
+      </motion.h1>      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {sortedCategories.map((category) => (
-          <motion.div 
-            key={category} 
-            className="card bg-base-100 shadow-xl"
+          <motion.div
+            key={category}
+            className="card bg-base-100 shadow-xl cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            onMouseEnter={() => setHoveredCategory(category)}
+            onMouseLeave={() => setHoveredCategory(null)}
           >
             <div className="card-body">
-              <h2 className="card-title flex items-center">
-                <span className="mr-2 text-2xl">
-                  {categoryIconMap[category] || <FaCode />}
-                </span>
-                {category}
-              </h2>
-              
-              <motion.ul 
-                className="mt-4 space-y-4"
+              <div className="flex justify-between items-center">
+                <h2 className="card-title flex items-center">
+                  <span className="mr-2 text-2xl">
+                    {categoryIconMap[category] || <FaCode />}
+                  </span>
+                  {category}
+                </h2>                <motion.div
+                  variants={arrowVariants}
+                  initial="initial"
+                  animate={hoveredCategory === category ? "hover" : "initial"}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 15l7-7 7 7"
+                    />
+                  </svg>
+                </motion.div>
+              </div>
+
+              <motion.ul
+                className="mt-4 space-y-4 overflow-hidden"
                 variants={container}
                 initial="hidden"
-                animate="show"
+                animate={hoveredCategory === category ? "show" : "hidden"}
               >
                 {skillsByCategory[category]
                   .sort((a, b) => b.level - a.level) // Sort by level (highest first)
                   .map((skill) => (
                     <motion.li key={skill.name} variants={item}>
                       <div className="flex items-center mb-1">
-                        <span className="text-xl mr-2">
+                        <span className="text-xl mr-2 ml-4">
                           {skillIconMap[skill.name] || <FaCode />}
                         </span>
                         <span className="font-medium">{skill.name}</span>
                       </div>
-                      
-                      <div className="w-full bg-base-300 rounded-full h-2.5">
-                        <div 
-                          className="bg-primary h-2.5 rounded-full" 
+
+                      {/* <div className="w-full bg-base-300 rounded-full h-2.5">
+                        <div
+                          className="bg-primary h-2.5 rounded-full"
                           style={{ width: `${(skill.level / 5) * 100}%` }}
                         ></div>
-                      </div>
+                      </div> */}
                     </motion.li>
                   ))}
               </motion.ul>
