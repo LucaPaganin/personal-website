@@ -1,7 +1,7 @@
+"use client";
+
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import fs from 'fs';
-import path from 'path';
 import { FaExternalLinkAlt, FaCertificate, FaCalendarAlt } from 'react-icons/fa';
 
 // Define the Certification type
@@ -14,40 +14,28 @@ interface Certification {
   image?: string;
 }
 
-// Function to get certifications data
-async function getCertifications(): Promise<Certification[]> {
-  try {
-    // Get certifications from the Next.js data folder
-    const filePath = path.join(process.cwd(), 'src', 'data', 'json', 'certifications.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContents);
-  } catch (error) {
-    console.error('Error loading certifications:', error);
-    // Return sample certifications if the data cannot be loaded
-    return [
-      {
-        name: "Machine Learning Specialization",
-        issuer: "Coursera",
-        date: "2023-06-01",
-        credentialUrl: "https://coursera.org/verify/specialization/XXXXXX",
-        description: "A specialization covering machine learning algorithms and applications.",
-        image: "/images/ml-cert.jpg"
-      },
-      {
-        name: "Data Science Professional Certificate",
-        issuer: "edX",
-        date: "2022-10-15",
-        credentialUrl: "https://credentials.edx.org/XXXXXX",
-        description: "Professional certificate program covering data science fundamentals.",
-        image: "/images/data-cert.jpg"
-      }
-    ];
+// Hardcoded certifications data
+const certifications: Certification[] = [
+  {
+    name: "Microsoft Azure Fundamentals",
+    issuer: "Microsoft",
+    date: "2025-02-21", // You may need to adjust the actual date
+    credentialUrl: "https://learn.microsoft.com/en-us/users/lucapaganin-4094/credentials/certification/azure-fundamentals?tab=credentials-tab",
+    description: "Foundational understanding of cloud services and how those services are provided with Microsoft Azure. Covered cloud concepts, Azure services, Azure workloads, security, privacy, pricing, and support.",
+    image: "/images/az-900-transparent.png"
+  },
+  {
+    name: "Microsoft Azure AI Fundamentals",
+    issuer: "Microsoft",
+    date: "2025-03-14", // You may need to adjust the actual date
+    credentialUrl: "https://learn.microsoft.com/en-us/users/lucapaganin-4094/credentials/certification/azure-ai-fundamentals?tab=credentials-tab",
+    description: "Fundamentals of machine learning (ML) and artificial intelligence (AI) concepts, demonstrating knowledge of common AI workloads and how to implement them on Azure.",
+    image: "/images/ai-900.png"
   }
-}
+];
 
-export default async function CertificationsPage() {
+export default function CertificationsPage() {
   const t = useTranslations('cv');
-  const certifications = await getCertifications();
   
   // Sort certifications by date (newest first)
   const sortedCertifications = [...certifications].sort((a, b) => {
@@ -114,13 +102,13 @@ export default async function CertificationsPage() {
               {certification.description && (
                 <p className="mt-3 text-base-content/80">{certification.description}</p>
               )}
-              
-              {certification.image && (
-                <div className="mt-4">
+                {certification.image && (
+                <div className="mt-4 flex justify-center">
                   <img 
                     src={certification.image} 
                     alt={certification.name} 
-                    className="rounded-lg w-full h-auto object-cover"
+                    className="rounded-lg h-40 object-contain"
+                    style={{ maxWidth: '80%' }}
                   />
                 </div>
               )}

@@ -48,7 +48,7 @@ export default function LanguageSwitcher({
           />
         </svg>
       </div>
-      <ul className="absolute hidden group-hover:block hover:block z-[1] right-0 mt-[13px] p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg min-w-fit transition-colors">
+      <ul className="absolute hidden group-hover:block hover:block z-[1] right-0 mt-[2px] p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg min-w-fit transition-colors">
         {locales.map((locale) => (
           <li key={locale}>
             <Link

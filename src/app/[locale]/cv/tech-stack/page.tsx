@@ -20,6 +20,7 @@ import {
   SiNumpy,
   SiPandas,
   SiScipy,
+  SiJinja
 } from "react-icons/si";
 
 
@@ -48,6 +49,7 @@ const skills: Skill[] = [
   { name: "NumPy", category: "Libraries", level: 5 },
   { name: "Pandas", category: "Libraries", level: 5 },
   { name: "SciPy", category: "Libraries", level: 4 },
+  { name: "Jinja", category: "Libraries", level: 3 },
 ];
 
 // Map skill names to icons
@@ -63,7 +65,10 @@ const skillIconMap: Record<string, React.ReactNode> = {
   "Next.js": <SiNextdotjs />,
   NumPy: <SiNumpy />,
   Pandas: <SiPandas />,
-  SciPy: <SiScipy />
+  SciPy: <SiScipy />,
+  Jinja: <SiJinja />,
+  "Azure Cosmos DB": <FaDatabase />,
+  "Azure DevOps Pipelines": <FaTools />,
 };
 
 // Map category names to icons
@@ -180,13 +185,6 @@ export default function TechStackPage() {
                         </span>
                         <span className="font-medium">{skill.name}</span>
                       </div>
-
-                      {/* <div className="w-full bg-base-300 rounded-full h-2.5">
-                        <div
-                          className="bg-primary h-2.5 rounded-full"
-                          style={{ width: `${(skill.level / 5) * 100}%` }}
-                        ></div>
-                      </div> */}
                     </motion.li>
                   ))}
               </motion.ul>

@@ -3,29 +3,17 @@
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Precomputed HTML content from markdown
-const htmlContent = {
-  en: `I am a curious person, with a strong passion for continuous learning and discovering new technologies.`,
-  it: `Sono una persona curiosa, con una forte passione per l'apprendimento continuo e la scoperta di nuove tecnologie.`,
-};
-
-// Helper function to get HTML content based on locale
-function getHtmlContent(locale: string) {
-  return htmlContent[locale as keyof typeof htmlContent] || htmlContent.en;
-}
-
 // Sample images for the carousel - replace with your actual images
 const carouselImages = [
   {
-    src: "/images/photo1.jpg",
+    src: "/images/hiking_varigotti.jpg",
     alt: "Photo 1",
-    caption: "Working on a project",
+    caption: "Hiking in Varigotti",
   },
   {
     src: "/images/photo2.jpg",
@@ -42,9 +30,6 @@ const carouselImages = [
 export default function AboutPage() {
   const t = useTranslations("about");
   const locale = useLocale();
-
-  // Get the pre-rendered HTML content based on the current locale
-  const html = getHtmlContent(locale);
 
   // Carousel settings
   const sliderSettings = {
@@ -120,50 +105,7 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-      {/* Interests Section */}
-      <motion.section
-        className="mb-12"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title text-2xl mb-4">
-              {t("interests") || "Interests"}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-base-200 p-4 rounded-lg">
-                <h3 className="font-semibold text-lg mb-2">
-                  {t("research") || "Research"}
-                </h3>
-                <p>
-                  {t("researchDescription") ||
-                    "My research interests include machine learning, data science and software engineering."}
-                </p>
-              </div>
-              <div className="bg-base-200 p-4 rounded-lg">
-                <h3 className="font-semibold text-lg mb-2">
-                  {t("hobbies") || "Hobbies"}
-                </h3>
-                <p>
-                  {t("hobbiesDescription") ||
-                    "In my free time, I enjoy traveling, photography, and playing musical instruments."}
-                </p>
-              </div>
-              <div className="bg-base-200 p-4 rounded-lg">
-                <h3 className="font-semibold text-lg mb-2">
-                  {t("languages") || "Languages"}
-                </h3>
-                <p>
-                  {t("languagesDescription") ||
-                    "I speak Italian (native), English (fluent), and I'm learning other languages."}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+      
     </div>
   );
 }
