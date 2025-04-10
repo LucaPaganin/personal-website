@@ -8,22 +8,22 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Sample images for the carousel - replace with your actual images
-const carouselImages = [
+// Images for the carousel with translations from locale files
+const getCarouselImages = (t: (key: string) => string) => [
   {
     src: "/images/hiking_varigotti.jpg",
-    alt: "Photo 1",
-    caption: "Hiking in Varigotti",
+    alt: t("carousel.photo1.alt"),
+    caption: t("carousel.photo1.caption"),
   },
   {
-    src: "/images/photo2.jpg",
-    alt: "Photo 2",
-    caption: "At a conference",
+    src: "/images/altopiano_marocco.jpg",
+    alt: t("carousel.photo2.alt"),
+    caption: t("carousel.photo2.caption"),
   },
   {
-    src: "/images/photo3.jpg",
-    alt: "Photo 3",
-    caption: "Hiking in the mountains",
+    src: "/images/on_the_edge_nyc.jpg",
+    alt: t("carousel.photo3.alt"),
+    caption: t("carousel.photo3.caption"),
   },
 ];
 
@@ -50,8 +50,7 @@ export default function AboutPage() {
         transition={{ duration: 0.5 }}
       >
         {t("title")}
-      </motion.h1>
-
+      </motion.h1>{" "}
       {/* Introduction Section */}
       <motion.section
         className="mb-12"
@@ -59,18 +58,18 @@ export default function AboutPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title text-2xl mb-4">
+        {" "}
+        <div className="card bg-base-100 shadow-xl rounded-3xl overflow-hidden">
+          <div className="card-body p-10">
+            <h2 className="card-title text-2xl mb-5">
               {t("subtitle") || "About Me"}
             </h2>{" "}
-            <div className="prose lg:prose-xl">
+            <div className="prose lg:prose-xl px-2">
               {t("briefDescription")}
             </div>
           </div>
         </div>
-      </motion.section>
-
+      </motion.section>{" "}
       {/* Photo Carousel */}
       <motion.section
         className="mb-12"
@@ -78,12 +77,13 @@ export default function AboutPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title text-2xl mb-4">{t("photoGallery")}</h2>
-            <div className="max-w-3xl mx-auto">
+        {" "}
+        <div className="card bg-base-100 shadow-xl rounded-3xl overflow-hidden">
+          <div className="card-body p-10">
+            <h2 className="card-title text-2xl mb-5">{t("photoGallery")}</h2>{" "}
+            <div className="max-w-3xl mx-auto px-2">
               <Slider {...sliderSettings}>
-                {carouselImages.map((image, index) => (
+                {getCarouselImages(t).map((image, index) => (
                   <div key={index} className="relative px-2">
                     <div className="aspect-w-16 aspect-h-9 relative h-[400px]">
                       <Image
@@ -104,8 +104,6 @@ export default function AboutPage() {
           </div>
         </div>
       </motion.section>
-
-      
     </div>
   );
 }

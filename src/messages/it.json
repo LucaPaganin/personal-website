@@ -23,12 +23,25 @@
     "aboutDescription": "Scopri di più su chi sono, il mio background e cosa mi motiva.",
     "cvDescription": "Visualizza la mia esperienza professionale, istruzione e competenze tecniche.",
     "projectsDescription": "Esplora i progetti software che ho creato e a cui ho contribuito."
-  },
-  "about": {
+  },  "about": {
     "title": "Chi Sono",
     "subtitle": "In breve",
     "briefDescription": "Sono una persona curiosa, con una forte passione per l'apprendimento continuo e la scoperta di nuove tecnologie.",
-    "photoGallery": "Galleria Fotografica"
+    "photoGallery": "Galleria Fotografica",
+    "carousel": {
+      "photo1": {
+        "alt": "Escursione a Varigotti",
+        "caption": "Escursione a Varigotti"
+      },
+      "photo2": {
+        "alt": "In Marocco",
+        "caption": "Su un altopiano del Marocco"
+      },
+      "photo3": {
+        "alt": "New York",
+        "caption": "Sull'angolo del The Edge a New York"
+      }
+    }
   },
   "projects": {
     "title": "Progetti",

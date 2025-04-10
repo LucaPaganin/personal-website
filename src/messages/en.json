@@ -28,7 +28,21 @@
     "title": "About Me",
     "subtitle": "In a nutshell",
     "briefDescription": "I am a curious person, with a strong passion for continuous learning and discovering new technologies.",
-    "photoGallery": "Photo Gallery"
+    "photoGallery": "Photo Gallery",
+    "carousel": {
+      "photo1": {
+        "alt": "Hiking in Varigotti",
+        "caption": "Hiking in Varigotti"
+      },
+      "photo2": {
+        "alt": "In Morocco",
+        "caption": "On a Moroccan plateau"
+      },
+      "photo3": {
+        "alt": "Mountain hiking",
+        "caption": "On the edge of The Edge in New York"
+      }
+    }
   },
   "projects": {
     "title": "Projects",
