@@ -22,7 +22,7 @@ const certifications: Certification[] = [
     date: "2025-02-21", // You may need to adjust the actual date
     credentialUrl: "https://learn.microsoft.com/en-us/users/lucapaganin-4094/credentials/certification/azure-fundamentals?tab=credentials-tab",
     description: "Foundational understanding of cloud services and how those services are provided with Microsoft Azure. Covered cloud concepts, Azure services, Azure workloads, security, privacy, pricing, and support.",
-    image: "/images/az-900-transparent.png"
+    image: "/images/az-900.png"
   },
   {
     name: "Microsoft Azure AI Fundamentals",

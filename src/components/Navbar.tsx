@@ -8,6 +8,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { useState, useEffect } from "react";
 import { locales } from "@/i18n";
 import { FaBars, FaTimes } from "react-icons/fa";
+import "@/styles/navbar.css";
 
 export default function Navbar() {
   // Safe access to translations with fallback
@@ -64,11 +65,11 @@ export default function Navbar() {
   // Only render UI elements after client-side hydration is complete
   if (!mounted) {
     return (
-      <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50 rounded-b-lg">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex-shrink-0">
-              <span className="text-xl font-bold">Luca Paganin</span>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <div className="navbar-layout">
+            <div className="navbar-logo">
+              <span>Luca Paganin</span>
             </div>
           </div>
         </div>
@@ -76,12 +77,12 @@ export default function Navbar() {
     );
   }
   return (
-    <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50 rounded-b-lg">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-layout">
           {/* Logo/Home Link */}
-          <div className="flex-shrink-0">
-            <Link href={`/${locale}`} className="text-xl font-bold">
+          <div className="navbar-logo">
+            <Link href={`/${locale}`}>
               Luca Paganin
             </Link>
           </div>{" "}
@@ -90,30 +91,24 @@ export default function Navbar() {
             {" "}
             <Link
               href={`/${locale}`}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                pathname === `/${locale}`
-                  ? "bg-blue-700 text-white"
-                  : "hover:bg-blue-500"
+              className={`nav-link ${
+                pathname === `/${locale}` ? "nav-link-active" : "nav-link-inactive"
               }`}
             >
               {t("home")}
             </Link>
             <Link
               href={`/${locale}/about`}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                pathname === `/${locale}/about`
-                  ? "bg-blue-700 text-white"
-                  : "hover:bg-blue-500"
+              className={`nav-link ${
+                pathname === `/${locale}/about` ? "nav-link-active" : "nav-link-inactive"
               }`}
             >
               {t("about")}
             </Link>
             <Link
               href={`/${locale}/projects`}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                pathname === `/${locale}/projects`
-                  ? "bg-blue-700 text-white"
-                  : "hover:bg-blue-500"
+              className={`nav-link ${
+                pathname === `/${locale}/projects` ? "nav-link-active" : "nav-link-inactive"
               }`}
             >
               {" "}
@@ -123,10 +118,8 @@ export default function Navbar() {
             <div className="relative group">
               {" "}
               <div
-                className={`px-3 py-2 rounded-md text-sm font-medium cursor-pointer flex items-center space-x-1 ${
-                  pathname.includes(`/${locale}/cv`)
-                    ? "bg-blue-700 text-white"
-                    : "hover:bg-blue-500"
+                className={`dropdown-trigger ${
+                  pathname.includes(`/${locale}/cv`) ? "nav-link-active" : "nav-link-inactive"
                 }`}
               >
                 {" "}
@@ -147,7 +140,7 @@ export default function Navbar() {
                   />
                 </svg>
               </div>{" "}
-              <ul className="absolute hidden group-hover:block hover:block z-[1] mt-0 p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors">
+              <ul className="dropdown-menu">
                 {" "}
                 <li>
                   <Link
@@ -230,10 +223,8 @@ export default function Navbar() {
             {" "}
             <Link
               href={`/${locale}`}
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === `/${locale}`
-                  ? "bg-blue-700 text-white"
-                  : "hover:bg-blue-100 dark:hover:bg-blue-800"
+              className={`mobile-nav-link ${
+                pathname === `/${locale}` ? "mobile-nav-link-active" : "mobile-nav-link-inactive"
               }`}
               onClick={closeMenu}
             >
@@ -241,10 +232,8 @@ export default function Navbar() {
             </Link>
             <Link
               href={`/${locale}/about`}
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === `/${locale}/about`
-                  ? "bg-blue-700 text-white"
-                  : "hover:bg-blue-100 dark:hover:bg-blue-800"
+              className={`mobile-nav-link ${
+                pathname === `/${locale}/about` ? "mobile-nav-link-active" : "mobile-nav-link-inactive"
               }`}
               onClick={closeMenu}
             >
@@ -252,37 +241,35 @@ export default function Navbar() {
             </Link>
             <Link
               href={`/${locale}/projects`}
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === `/${locale}/projects`
-                  ? "bg-blue-700 text-white"
-                  : "hover:bg-blue-100 dark:hover:bg-blue-800"
+              className={`mobile-nav-link ${
+                pathname === `/${locale}/projects` ? "mobile-nav-link-active" : "mobile-nav-link-inactive"
               }`}
               onClick={closeMenu}
             >
               {t("projects")}
             </Link>
             {/* CV Section Title */}{" "}
-            <div className="px-3 py-2 text-base font-medium border-t border-gray-200 dark:border-gray-700 mt-2 pt-2">
+            <div className="mobile-section-title">
               {t("cv")}
             </div>{" "}
             {/* CV Subsections */}
             <Link
               href={`/${locale}/cv/experiences`}
-              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="mobile-menu-link"
               onClick={closeMenu}
             >
               {t("experiences")}
             </Link>
             <Link
               href={`/${locale}/cv/education`}
-              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="mobile-menu-link"
               onClick={closeMenu}
             >
               {t("education")}
             </Link>
             <Link
               href={`/${locale}/cv/tech-stack`}
-              className="block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="mobile-menu-link"
               onClick={closeMenu}
             >
               {t("techStack")}

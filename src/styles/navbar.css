@@ -1,0 +1,64 @@
+/* Base navbar styles */
+.navbar {
+  @apply bg-blue-600 text-white shadow-md sticky top-0 z-50 rounded-b-lg;
+}
+
+.navbar-container {
+  @apply container mx-auto px-4;
+}
+
+.navbar-layout {
+  @apply flex justify-between items-center h-16;
+}
+
+/* Logo styles */
+.navbar-logo {
+  @apply flex-shrink-0 text-xl font-bold;
+}
+
+/* Navigation links */
+.nav-link {
+  @apply px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+}
+
+.nav-link-active {
+  @apply bg-blue-700 text-white;
+}
+
+.nav-link-inactive {
+  @apply hover:bg-blue-500;
+}
+
+/* Dropdown styles */
+.dropdown-trigger {
+  @apply px-3 py-2 rounded-md text-sm font-medium cursor-pointer flex items-center space-x-1;
+}
+
+.dropdown-menu {
+  @apply absolute hidden group-hover:block hover:block z-[1] mt-0 p-2 shadow bg-sky-100 dark:bg-gray-900 text-blue-800 dark:text-gray-200 rounded-lg w-52 transition-colors;
+}
+
+.dropdown-menu-link {
+  @apply block px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
+}
+
+/* Mobile menu */
+.mobile-nav-link {
+  @apply block px-3 py-2 rounded-md text-base font-medium;
+}
+
+.mobile-nav-link-active {
+  @apply bg-blue-700 text-white;
+}
+
+.mobile-nav-link-inactive {
+  @apply hover:bg-blue-100 dark:hover:bg-blue-800;
+}
+
+.mobile-menu-link {
+  @apply block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
+}
+
+.mobile-section-title {
+  @apply px-3 py-2 text-base font-medium border-t border-gray-200 dark:border-gray-700 mt-2 pt-2;
+}
