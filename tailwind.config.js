@@ -7,7 +7,8 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],  theme: {
+  ],
+  theme: {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -28,6 +29,11 @@ module.exports = {
           dark: '#f7a93b',
         },
       },
+      fontFamily: {
+        athelas: ['Athelas', 'serif'],
+        sans: ['Athelas', 'ui-sans-serif', 'system-ui', 'sans-serif'], // Set Athelas as the default sans font
+      },
     },
-  },  plugins: [],
+  },
+  plugins: [],
 }
