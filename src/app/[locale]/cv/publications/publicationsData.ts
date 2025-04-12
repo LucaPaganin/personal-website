@@ -28,10 +28,12 @@ export const publications: Publication[] = [
       "Chiara Garibotto",
       "Damiano Vallocchia",
     ],
+    journal: "IEEE",
     year: 2022,
-    url: "https://fractal-project.eu/",
+    url: "https://ieeexplore.ieee.org/document/9996615",
     abstract:
-      "This paper presents the implementation of intelligent totem systems as part of the ECSEL FRACTAL project, focusing on creating responsive environments through embedded AI and sensor networks.",
+      `This paper presents the implementation of intelligent totem systems as part of the ECSEL FRACTAL project, 
+      focusing on creating responsive environments through embedded AI and sensor networks.`,
     tags: ["embedded systems", "AI", "IoT"],
   },
   {
@@ -54,7 +56,8 @@ export const publications: Publication[] = [
     url: "https://arxiv.org/abs/2409.18882",
     doi: "10.48550/arXiv.2409.18882",
     abstract:
-      "This work presents forecasts for cosmological constraints from a combined analysis of cosmic shear, galaxy clustering, and galaxy-galaxy lensing for the Euclid space mission, utilizing a 6×2pt correlation function approach.",
+      `This work presents forecasts for cosmological constraints from a combined analysis of cosmic shear, galaxy clustering, 
+       and galaxy-galaxy lensing for the Euclid space mission, utilizing a 6x2pt correlation function approach.`,
     tags: ["cosmology", "astrophysics", "dark energy"],
   },
   {
@@ -98,7 +101,8 @@ export const publications: Publication[] = [
     url: "https://www.aanda.org/articles/aa/full_html/2023/02/aa44445-22/aa44445-22.html",
     doi: "10.1051/0004-6361/202244445",
     abstract:
-      "This paper explores the potential of cosmic void-lensing cross-correlations as a cosmological probe for the Euclid mission, providing forecasts for constraining cosmological parameters including dark energy properties.",
+      `This paper explores the potential of cosmic void-lensing cross-correlations as a cosmological probe 
+       for the Euclid mission, providing forecasts for constraining cosmological parameters including dark energy properties.`,
     tags: ["cosmology", "voids", "weak lensing"],
   },
   {
@@ -124,7 +128,8 @@ export const publications: Publication[] = [
     url: "https://iopscience.iop.org/article/10.1088/1538-3873/ac102e",
     doi: "10.1088/1538-3873/ac102e",
     abstract:
-      "This work presents a novel methodology for self-calibration of spectro-photometric instruments during survey operations, improving the accuracy of flux calibration without requiring additional calibration observations.",
+      `This work presents a novel methodology for self-calibration of spectro-photometric instruments during survey 
+       operations, improving the accuracy of flux calibration without requiring additional calibration observations.`,
     tags: ["instrumentation", "spectroscopy", "calibration"],
   },
   {
