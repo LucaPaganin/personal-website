@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa";
 import { publications } from "./publicationsData";
-
+import "@/styles/cv.css"; // Import the CSS file
 
 export default function PublicationsPage() {
   const t = useTranslations("cv");
@@ -29,9 +29,9 @@ export default function PublicationsPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="cv-container">
       <motion.h1
-        className="text-4xl font-bold mb-8 text-center"
+        className="cv-heading"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -40,19 +40,18 @@ export default function PublicationsPage() {
       </motion.h1>
 
       <motion.div
-        className="space-y-0"
+        className="publication-list"
         variants={container}
         initial="hidden"
         animate="show"
       >
-        {" "}
         {sortedPublications.map((publication, index) => (
           <motion.div
             key={index}
-            className="card bg-base-100 shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-shadow group relative mb-1"
+            className="publication-card"
             variants={item}
           >
-            <div className="card-body p-5 space-y-1">
+            <div className="publication-card-body">
               <a
                 href={
                   publication.url ||
@@ -62,44 +61,42 @@ export default function PublicationsPage() {
                 rel="noopener noreferrer"
                 className="relative z-10"
               >
-                <h2 className="card-title text-lg sm:text-xl font-bold group-hover:text-primary transition-colors">
-                  <span className="mr-2 text-primary">•</span>
+                <h2 className="publication-title">
+                  <span className="publication-title-marker">•</span>
                   {publication.title}
                 </h2>
               </a>
 
-              <p className="font-medium mt-1 ml-4">
+              <p className="publication-meta">
                 {publication.journal && `${publication.journal}, `}
                 {publication.year}
               </p>
-              {/* Hover dropdown that shows details */}
-              <div className="mt-1 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-[500px] transition-all duration-300 bg-base-200 rounded-2xl p-0 group-hover:p-6 border-0 group-hover:border border-base-300">
+              
+              <div className="publication-expandable">
                 <div className="flex flex-col space-y-4">
-                  <div>
-                    <h3 className="font-semibold mb-2">Authors</h3>
+                  <div className="publication-section">
+                    <h3 className="publication-section-title">Authors</h3>
                     <p className="text-base-content/80 px-2">
                       {publication.authors.join(", ")}
                     </p>
                   </div>
 
                   {publication.abstract && (
-                    <div>
-                      <h3 className="font-semibold mb-1">Abstract</h3>
-                      <div className="flex items-start space-x-2">
-                        <FaQuoteLeft className="text-base-content/50 mt-1 flex-shrink-0" />
-                        <p className="text-base-content/80 italic">
-                          {publication.abstract}
-                        </p>
+                    <div className="publication-section">
+                      <h3 className="publication-section-title">Abstract</h3>
+                      <div className="publication-abstract">
+                        <FaQuoteLeft className="publication-abstract-icon" />
+                        <p>{publication.abstract}</p>
                       </div>
                     </div>
                   )}
 
                   {publication.tags && publication.tags.length > 0 && (
-                    <div>
-                      <h3 className="font-semibold mb-1">Keywords</h3>
-                      <div className="flex flex-wrap gap-2">
+                    <div className="publication-section">
+                      <h3 className="publication-section-title">Keywords</h3>
+                      <div className="publication-tags">
                         {publication.tags.map((tag, idx) => (
-                          <span key={idx} className="badge badge-outline">
+                          <span key={idx} className="publication-tag">
                             {tag}
                           </span>
                         ))}
@@ -112,15 +109,13 @@ export default function PublicationsPage() {
                       href={`https://doi.org/${publication.doi}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-sm btn-outline"
+                      className="publication-link"
                     >
                       DOI: {publication.doi}
                     </a>
                   )}
                 </div>
               </div>
-
-              <div className="card-actions justify-end mt-4"></div>
             </div>
           </motion.div>
         ))}

@@ -1,0 +1,401 @@
+/* CV Styles - Extracted from publications and education pages */
+
+/* ===== Layout & Containers ===== */
+.cv-container {
+  max-width: 72rem; /* 6xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cv-section {
+  margin-bottom: 2rem;
+}
+
+.cv-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-space-y-1 {
+  margin-top: 0.25rem;
+}
+
+.cv-space-y-4 {
+  margin-top: 1rem;
+}
+
+.cv-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ===== Typography ===== */
+.cv-heading-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cv-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .cv-card-title {
+    font-size: 1.25rem;
+  }
+}
+
+.cv-subtitle {
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-left: 1rem;
+}
+
+.cv-section-heading {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cv-text-muted {
+  opacity: 0.8;
+}
+
+.cv-text-italic {
+  font-style: italic;
+}
+
+/* ===== Cards ===== */
+.cv-card {
+  background-color: var(--card-bg, var(--base-100));
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease;
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+.cv-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+.cv-card-body {
+  padding: 1.25rem;
+}
+
+.cv-card-marker {
+  margin-right: 0.5rem;
+  color: var(--primary);
+}
+
+/* ===== Interactive Elements ===== */
+.cv-expandable {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 0;
+  padding: 0;
+}
+
+.cv-card:hover .cv-expandable {
+  max-height: 500px;
+  opacity: 1;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color, var(--base-300));
+  background-color: var(--expanded-bg, var(--base-200));
+  border-radius: 1rem;
+}
+
+.cv-badge {
+  display: inline-flex;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  line-height: 1;
+  border: 1px solid var(--badge-border, currentColor);
+  opacity: 0.8;
+}
+
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  border: 1px solid currentColor;
+  transition: all 0.2s;
+}
+
+.cv-btn:hover {
+  background-color: var(--btn-hover-bg, rgba(0,0,0,0.05));
+}
+
+/* ===== Animations ===== */
+.cv-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.cv-slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== Timeline Specific ===== */
+.cv-timeline-card {
+  border-radius: 12px;
+  background: var(--primary-color);
+  color: var(--text-color);
+}
+
+.cv-timeline-icon {
+  background: var(--primary-color);
+  color: var(--icon-color);
+}
+
+/* CSS Variables for theming consistency */
+:root {
+  --primary-color: #3b82f6;
+  --text-color: white;
+  --icon-color: white;
+  --border-color: #e5e7eb;
+  --card-bg: white;
+  --expanded-bg: #f9fafb;
+}
+
+[data-theme="dark"] {
+  --primary-color: #60a5fa;
+  --text-color: #f3f4f6;
+  --icon-color: #f3f4f6;
+  --border-color: #374151;
+  --card-bg: #1f2937;
+  --expanded-bg: #111827;
+}
+
+/* ===== Common CV Styles ===== */
+.cv-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cv-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ===== Publications Page Styles ===== */
+.publication-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.publication-card {
+  /* background-color: var(--card-bg); */
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease;
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+.publication-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+.publication-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.publication-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.publication-title:hover {
+  color: var(--primary);
+}
+
+.publication-title-marker {
+  margin-right: 0.5rem;
+  color: var(--primary);
+}
+
+@media (min-width: 640px) {
+  .publication-title {
+    font-size: 1.25rem;
+  }
+}
+
+.publication-meta {
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-left: 1rem;
+}
+
+.publication-expandable {
+  margin-top: 0.25rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 0;
+  padding: 0;
+  /* background-color: var(--expanded-bg, #f9fafb); */
+  border-radius: 1rem;
+}
+
+.publication-card:hover .publication-expandable {
+  opacity: 1;
+  max-height: 500px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.publication-section {
+  margin-bottom: 1rem;
+}
+
+.publication-section-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.publication-abstract {
+  font-style: italic;
+  opacity: 0.8;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.publication-abstract-icon {
+  opacity: 0.5;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.publication-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.publication-tag {
+  display: inline-flex;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  border: 1px solid currentColor;
+  opacity: 0.8;
+}
+
+.publication-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid currentColor;
+  transition: all 0.2s;
+}
+
+.publication-link:hover {
+  background-color: var(--btn-hover-bg, rgba(0,0,0,0.05));
+}
+
+/* ===== Education Page Styles ===== */
+.education-timeline {
+  position: relative;
+}
+
+.education-timeline-element {
+  border-radius: 12px;
+  color: var(--text-color, white);
+}
+
+.education-timeline-content {
+  background-color: var(--primary-color, #3b82f6);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.education-timeline-arrow {
+  border-right: 7px solid var(--primary-color, #3b82f6);
+}
+
+.education-timeline-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color, #3b82f6);
+  color: var(--icon-color, white);
+  border-radius: 50%;
+}
+
+.education-degree {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.education-institution {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.education-description {
+  margin-top: 1rem;
+}
+
+.education-gpa {
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* CSS Variables for theming consistency */
+:root {
+  --primary-color: #3b82f6;
+  --text-color: white;
+  --icon-color: white;
+  --border-color: #e5e7eb;
+  --card-bg: white;
+  --expanded-bg: #f9fafb;
+}
+
+[data-theme="dark"] {
+  --primary-color: #60a5fa;
+  --text-color: #f3f4f6;
+  --icon-color: #f3f4f6;
+  --border-color: #374151;
+  --card-bg: #1f2937;
+  --expanded-bg: #111827;
+}

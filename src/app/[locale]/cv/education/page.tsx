@@ -10,6 +10,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { FaGraduationCap } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+import "@/styles/cv.css"; // Import the CSS file
 
 export default function EducationPage() {
   const tEducation = useTranslations("education");
@@ -42,9 +43,9 @@ export default function EducationPage() {
   }, [locale]);
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="cv-container">
       <motion.h1
-        className="text-4xl font-bold mb-8 text-center"
+        className="cv-heading"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -53,38 +54,39 @@ export default function EducationPage() {
       </motion.h1>
 
       <VerticalTimeline
+        className="education-timeline"
         lineColor={theme === "dark" ? "white" : "black"}
       >
         {educationIds.map((eduId) => (
           <VerticalTimelineElement
             key={eduId}
-            className="vertical-timeline-element--education"
+            className="education-timeline-element"
             contentStyle={{ 
-              background: 'var(--primary-color)', 
-              color: 'var(--text-color)', 
-              borderRadius: '12px' 
+              background: 'var(--primary-color)',
+              color: 'var(--text-color)',
+              borderRadius: '12px'
             }}
             contentArrowStyle={{ borderRight: '7px solid var(--primary-color)' }}
             date={tEducation(`${eduId}.period`)}
             iconStyle={{ 
-              background: 'var(--primary-color)', 
-              color: 'var(--icon-color)' 
+              background: 'var(--primary-color)',
+              color: 'var(--icon-color)'
             }}
             icon={<FaGraduationCap />}
           >
-            <h3 className="vertical-timeline-element-title text-xl font-bold">
+            <h3 className="education-degree">
               {tEducation(`${eduId}.degree`)}
             </h3>
-            <h4 className="vertical-timeline-element-subtitle font-medium mt-1">
+            <h4 className="education-institution">
               {tEducation(`${eduId}.institution`)}, {tEducation(`${eduId}.location`)}
             </h4>
             
             {tEducation.raw(`${eduId}.description`) && (
-              <p className="mt-4">{tEducation(`${eduId}.description`)}</p>
+              <p className="education-description">{tEducation(`${eduId}.description`)}</p>
             )}
             
             {tEducation.raw(`${eduId}.gpa`) && (
-              <p className="mt-2 font-medium">GPA: {tEducation(`${eduId}.gpa`)}</p>
+              <p className="education-gpa">GPA: {tEducation(`${eduId}.gpa`)}</p>
             )}
           </VerticalTimelineElement>
         ))}
