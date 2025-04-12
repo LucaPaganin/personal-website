@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
 import { Link } from "../../navigation";
 import { motion } from "framer-motion";
 import { FaUser, FaCode, FaFileAlt } from "react-icons/fa";
@@ -9,7 +8,6 @@ import { FaUser, FaCode, FaFileAlt } from "react-icons/fa";
 export default function HomePage() {
   const t = useTranslations("home");
   const pathPrefix = useTranslations("navigation"); // Used for paths
-  const params = useParams();
 
   return (
     <div className="py-12">

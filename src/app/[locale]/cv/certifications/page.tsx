@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaCertificate, FaCalendarAlt } from 'react-icons/fa';
+import Image from 'next/image';
 
 // Define the Certification type
 interface Certification {
@@ -104,11 +105,13 @@ export default function CertificationsPage() {
               )}
                 {certification.image && (
                 <div className="mt-4 flex justify-center">
-                  <img 
-                    src={certification.image} 
-                    alt={certification.name} 
-                    className="rounded-lg h-40 object-contain"
-                    style={{ maxWidth: '80%' }}
+                  <Image 
+                    src={certification.image}
+                    alt={certification.name}
+                    width={200}
+                    height={160}
+                    className="rounded-lg object-contain"
+                    style={{ height: '10rem', maxWidth: '80%' }}
                   />
                 </div>
               )}

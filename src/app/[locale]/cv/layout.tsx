@@ -1,13 +1,10 @@
 "use client";
 
-import { useTranslations } from 'next-intl';
-
 export default function CVLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const t = useTranslations('cv');
 
   return (
     <div>      

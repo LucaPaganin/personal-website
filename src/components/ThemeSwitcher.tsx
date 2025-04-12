@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes';
 import { useState } from 'react';
 
 export default function ThemeSwitcher() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [selectedMode, setSelectedMode] = useState(theme === 'dark' ? 'dark' : 'light');;
 
   // Toggle theme

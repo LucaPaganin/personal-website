@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { locales } from '../i18n';
 import { Providers } from './providers';
 import localFont from 'next/font/local';
-
-const inter = Inter({ subsets: ['latin'] });
 
 const athelas = localFont({
   src: [

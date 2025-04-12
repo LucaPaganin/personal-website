@@ -1,9 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
 import Link from "next/link";
-import { useState } from "react";
 import { IoLanguage } from "react-icons/io5";
 import Image from "next/image";
 
@@ -19,8 +17,6 @@ export default function LanguageSwitcher({
   getLocalizedPath,
 }: LanguageSwitcherProps) {
   const t = useTranslations("languageSelector");
-  const locale = useLocale();
-  const [isOpen, setIsOpen] = useState(false);
 
   const flags: Record<string, string> = {
     en: "https://www.svgrepo.com/show/405643/flag-for-flag-united-kingdom.svg",

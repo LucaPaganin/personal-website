@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Slider from "react-slick";
@@ -29,7 +28,6 @@ const getCarouselImages = (t: (key: string) => string) => [
 
 export default function AboutPage() {
   const t = useTranslations("about");
-  const locale = useLocale();
 
   // Carousel settings
   const sliderSettings = {

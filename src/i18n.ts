@@ -14,7 +14,7 @@ export default getRequestConfig(async ({ locale }) => {
   if (!locale) {
     console.log('Using default locale because locale is undefined');
     locale = defaultLocale;
-  } else if (!locales.includes(locale as any)) {
+  } else if (!locales.includes(locale as string)) {
     console.log('Locale not supported:', locale);
     notFound();
   }

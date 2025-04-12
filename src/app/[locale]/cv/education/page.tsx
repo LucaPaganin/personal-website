@@ -19,7 +19,7 @@ export default function EducationPage() {
   
   // State to store the education IDs fetched from the API
   const [educationIds, setEducationIds] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   
   // Fetch education IDs from our API endpoint
   useEffect(() => {

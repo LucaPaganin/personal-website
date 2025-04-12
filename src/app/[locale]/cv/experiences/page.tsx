@@ -8,7 +8,7 @@ import { FaBriefcase } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useTheme } from "next-themes";
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function ExperiencesPage() {
   // Use client-side hooks
@@ -19,7 +19,7 @@ export default function ExperiencesPage() {
   
   // State to store the experience IDs fetched from the API
   const [experienceIds, setExperienceIds] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   
   // Fetch experience IDs from our API endpoint
   useEffect(() => {

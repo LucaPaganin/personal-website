@@ -11,25 +11,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import "@/styles/navbar.css";
 
 export default function Navbar() {
-  // Safe access to translations with fallback
-  const safeT = (key: string, defaultValue: string = "") => {
-    try {
-      return t(key);
-    } catch (error) {
-      return defaultValue;
-    }
-  };
-  // Wrap hooks in try-catch for safer client-side rendering
-  let t: (key: string) => string;
-  let locale: string;
-  try {
-    t = useTranslations("navigation");
-    locale = useLocale();
-  } catch (error) {
-    // Default fallback if hooks fail
-    t = (key: string): string => key;
-    locale = "en";
-  }
+  const t = useTranslations("navigation");
+  const locale = useLocale();
 
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
