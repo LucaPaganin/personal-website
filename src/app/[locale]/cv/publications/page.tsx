@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt, FaFilePdf, FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteLeft } from "react-icons/fa";
 import { publications } from "./publicationsData";
 
 

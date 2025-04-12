@@ -127,4 +127,20 @@ export const publications: Publication[] = [
       "This work presents a novel methodology for self-calibration of spectro-photometric instruments during survey operations, improving the accuracy of flux calibration without requiring additional calibration observations.",
     tags: ["instrumentation", "spectroscopy", "calibration"],
   },
+  {
+    title: "Improving the Euclid performance: from spectroscopic simulations to the 6x2pt statistics.",
+    authors: ["L. Paganin"],
+    journal: "Iris Unige",
+    year: 2022,
+    url: "https://hdl.handle.net/11567/1064238",
+    doi: "",
+    tags: ["cosmology", "astrophysics", "Euclid"],
+    abstract:
+      `This thesis develops simulation software for validating Euclid's spectroscopic data reduction pipeline, 
+      enabling accurate extraction of galaxy spectra from NISP instrument observations. The author also 
+      conducted cosmological parameter forecasts incorporating correlations between weak lensing, photometric and 
+      spectroscopic galaxy clustering, pioneering the so-called 6x2pt analysis in the Euclid mission context.
+      This analysis had the aim to understand if all the correlations between the different probes
+      could be used to improve the Euclid performance, therefore enhancing dark energy constraints resulting from the mission.`,
+  }
 ];
