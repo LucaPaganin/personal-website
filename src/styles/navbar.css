@@ -13,12 +13,12 @@
 
 /* Logo styles */
 .navbar-logo {
-  @apply flex-shrink-0 text-xl font-bold;
+  @apply flex-shrink-0 text-2xl font-bold;
 }
 
 /* Navigation links */
 .nav-link {
-  @apply px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  @apply px-4 py-2 rounded-md text-base font-medium transition-colors duration-200;
 }
 
 .nav-link-active {
@@ -31,7 +31,7 @@
 
 /* Dropdown styles */
 .dropdown-trigger {
-  @apply px-3 py-2 rounded-md text-sm font-medium cursor-pointer flex items-center space-x-1;
+  @apply px-3 py-2 rounded-md text-base font-medium cursor-pointer flex items-center space-x-1;
 }
 
 .dropdown-menu {
@@ -39,12 +39,12 @@
 }
 
 .dropdown-menu-link {
-  @apply block px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
+  @apply block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
 }
 
 /* Mobile menu */
 .mobile-nav-link {
-  @apply block px-3 py-2 rounded-md text-base font-medium;
+  @apply block px-3 py-2 rounded-md text-lg font-medium;
 }
 
 .mobile-nav-link-active {
@@ -56,9 +56,9 @@
 }
 
 .mobile-menu-link {
-  @apply block px-3 py-2 pl-6 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
+  @apply block px-3 py-2 pl-6 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
 }
 
 .mobile-section-title {
-  @apply px-3 py-2 text-base font-medium border-t border-gray-200 dark:border-gray-700 mt-2 pt-2;
+  @apply px-3 py-2 text-lg font-medium border-t border-gray-200 dark:border-gray-700 mt-2 pt-2;
 }

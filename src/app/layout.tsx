@@ -31,6 +31,8 @@ const athelas = localFont({
     },
   ],
   variable: '--font-athelas',
+  adjustFontFallback: 'Times New Roman',
+  // Note: If you want to adjust font size, use CSS instead of this removed property
 });
 
 
@@ -52,7 +54,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={`${athelas.variable} min-h-screen flex flex-col bg-base-100 text-base-content`}>
+      <body className={`${athelas.variable} min-h-screen flex flex-col bg-base-100 text-base-content text-lg`}>
         <Providers>{children}</Providers>
       </body>
     </html>
