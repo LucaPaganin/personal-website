@@ -63,7 +63,10 @@ export default function AboutPage() {
               {t("subtitle") || "About Me"}
             </h2>{" "}
             <div className="prose lg:prose-xl px-2">
-              {t("briefDescription")}
+              <p>{t("aboutMe.paragraph1")}</p>
+              <p>{t("aboutMe.paragraph2")}</p>
+              <p>{t("aboutMe.paragraph3")}</p>
+              <p>{t("aboutMe.paragraph4")}</p>
             </div>
           </div>
         </div>
