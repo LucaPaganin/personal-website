@@ -20,18 +20,26 @@ const certifications: Certification[] = [
   {
     name: "Microsoft Azure Fundamentals",
     issuer: "Microsoft",
-    date: "2025-02-21", // You may need to adjust the actual date
+    date: "2025-02-21",
     credentialUrl: "https://learn.microsoft.com/en-us/users/lucapaganin-4094/credentials/certification/azure-fundamentals?tab=credentials-tab",
     description: "Foundational understanding of cloud services and how those services are provided with Microsoft Azure. Covered cloud concepts, Azure services, Azure workloads, security, privacy, pricing, and support.",
-    image: "/images/az-900.png"
+    image: "/images/certifications/az-900.png"
   },
   {
     name: "Microsoft Azure AI Fundamentals",
     issuer: "Microsoft",
-    date: "2025-03-14", // You may need to adjust the actual date
+    date: "2025-03-14",
     credentialUrl: "https://learn.microsoft.com/en-us/users/lucapaganin-4094/credentials/certification/azure-ai-fundamentals?tab=credentials-tab",
     description: "Fundamentals of machine learning (ML) and artificial intelligence (AI) concepts, demonstrating knowledge of common AI workloads and how to implement them on Azure.",
-    image: "/images/ai-900.png"
+    image: "/images/certifications/ai-900.png"
+  },
+  {
+    name: "Microsoft Azure AI Engineer Associate",
+    issuer: "Microsoft",
+    date: "2025-06-20",
+    credentialUrl: "https://learn.microsoft.com/en-us/users/lucapaganin-4094/credentials/certification/azure-ai-engineer?source=docs&tab=credentials-tab",
+    description: "Demonstrates the ability to build, manage, and deploy AI solutions that leverage Azure Cognitive Services, Azure Bot Services, and Azure Machine Learning.",
+    image: "/images/certifications/ai-102.png"
   }
 ];
 
@@ -71,7 +79,7 @@ export default function CertificationsPage() {
       </motion.h1>
       
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-14"
         variants={container}
         initial="hidden"
         animate="show"
@@ -79,7 +87,7 @@ export default function CertificationsPage() {
         {sortedCertifications.map((certification, index) => (
           <motion.div 
             key={index}
-            className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow"
+            className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow border border-base-content/10 rounded-2xl p-6"
             variants={item}
           >
             <div className="card-body">

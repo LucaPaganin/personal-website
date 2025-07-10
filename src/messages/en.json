@@ -31,22 +31,30 @@
     "photoGallery": "Photo Gallery",
     "aboutMe": {
       "paragraph1": "I am Luca Paganin, a physicist and cosmologist at heart. My journey began with a PhD in Physics, where I contributed to the European Space Agency’s Euclid mission to explore the nature of dark energy and the large-scale structure of the Universe.",
-      "paragraph2": "I am a physicist by training, now lending my skills to software development—a physicist turned technologist. I love designing technological solutions and building automation for problems most people would tackle manually.",
+      "paragraph2": "I am a physicist by training, now lending my skills to software development. I love designing technological solutions and building automation for problems most people would tackle manually.",
       "paragraph3": "Beyond research, I am a problem solver at 360°, passionate about turning complexity into clarity. Technology and scientific thinking are the foundations of my approach: from data pipelines to intelligent systems.",
       "paragraph4": "I am Microsoft Certified in Azure AI solutions, and I believe in the power of AI to empower people and organizations. Automation and efficiency are not just tools—they are guiding principles that shape everything I create."
     },
     "carousel": {
-      "photo1": {
-        "alt": "Hiking in Varigotti",
-        "caption": "Hiking in Varigotti"
+      "merzouga": {
+        "alt": "In the desert",
+        "caption": "In the desert of Merzouga, Morocco"
       },
-      "photo2": {
-        "alt": "In Morocco",
-        "caption": "On a Moroccan plateau"
-      },
-      "photo3": {
-        "alt": "Mountain hiking",
+      "edgenyc": {
+        "alt": "In New York",
         "caption": "On the edge of The Edge in New York"
+      },
+      "morocco": {
+        "alt": "Mountain hiking",
+        "caption": "On the mountains of Morocco"
+      },
+      "helsinki2019": {
+        "alt": "In Helsinki",
+        "caption": "At my first Euclid Consortium Meeting, Helsinki, 2019"
+      },
+      "piedmont": {
+        "alt": "In Piedmont",
+        "caption": "Traveling to Piedmont"
       }
     }
   },

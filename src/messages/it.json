@@ -30,23 +30,31 @@
     "briefDescription": "Sono una persona curiosa, con una forte passione per l'apprendimento continuo e la scoperta di nuove tecnologie.",
     "photoGallery": "Galleria Fotografica",
     "aboutMe": {
-      "paragraph1": "Sono Luca Paganin, fisico e cosmologo nell'anima. Il mio percorso è iniziato con un dottorato in Fisica, durante il quale ho contribuito alla missione Euclid dell'Agenzia Spaziale Europea per esplorare la natura dell'energia oscura e la struttura su larga scala dell'Universo.",
-      "paragraph2": "Fisico di formazione, ora metto le mie competenze al servizio dello sviluppo software—un fisico diventato tecnologo. Amo progettare soluzioni tecnologiche e costruire automazioni per problemi che la maggior parte delle persone affronterebbe manualmente.",
+      "paragraph1": "Sono Luca Paganin, fisico e cosmologo di formazione. Il mio percorso è iniziato con un dottorato in Fisica, durante il quale ho contribuito alla missione Euclid dell'Agenzia Spaziale Europea per esplorare la natura dell'energia oscura e la struttura su larga scala dell'Universo.",
+      "paragraph2": "Fisico di formazione, ora metto le mie competenze al servizio dello sviluppo software. Amo progettare soluzioni tecnologiche e costruire automazioni per problemi che la maggior parte delle persone affronterebbe manualmente.",
       "paragraph3": "Oltre alla ricerca, sono un problem solver a 360°, appassionato nel trasformare la complessità in chiarezza. Tecnologia e pensiero scientifico sono le fondamenta del mio approccio: dalle pipeline di dati ai sistemi intelligenti.",
       "paragraph4": "Sono certificato Microsoft in soluzioni Azure AI e credo nel potere dell'intelligenza artificiale per dare valore a persone e organizzazioni. Automazione ed efficienza non sono solo strumenti, ma principi guida che plasmano tutto ciò che creo."
     },
     "carousel": {
-      "photo1": {
-        "alt": "Escursione a Varigotti",
-        "caption": "Escursione a Varigotti"
+      "merzouga": {
+        "alt": "Nel deserto",
+        "caption": "Nel deserto di Merzouga, Marocco"
       },
-      "photo2": {
-        "alt": "In Marocco",
-        "caption": "Su un altopiano del Marocco"
-      },
-      "photo3": {
-        "alt": "New York",
+      "edgenyc": {
+        "alt": "A New York",
         "caption": "Sull'angolo del The Edge a New York"
+      },
+      "morocco": {
+        "alt": "Escursione in montagna",
+        "caption": "Sulle montagne del Marocco"
+      },
+      "helsinki2019": {
+        "alt": "In Helsinki",
+        "caption": "Alla mia prima riunione del Consorzio Euclid, Helsinki, 2019"
+      },
+      "piedmont": {
+        "alt": "In Piemonte",
+        "caption": "In viaggio in Piemonte"
       }
     }
   },

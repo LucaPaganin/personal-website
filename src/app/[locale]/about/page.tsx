@@ -10,19 +10,29 @@ import "slick-carousel/slick/slick-theme.css";
 // Images for the carousel with translations from locale files
 const getCarouselImages = (t: (key: string) => string) => [
   {
-    src: "/images/hiking_varigotti.jpg",
-    alt: t("carousel.photo1.alt"),
-    caption: t("carousel.photo1.caption"),
+    src: "/images/about/1_merzouga.jpg",
+    alt: t("carousel.merzouga.alt"),
+    caption: t("carousel.merzouga.caption"),
   },
   {
-    src: "/images/altopiano_marocco.jpg",
-    alt: t("carousel.photo2.alt"),
-    caption: t("carousel.photo2.caption"),
+    src: "/images/about/2_on_the_edge_nyc.jpg",
+    alt: t("carousel.edgenyc.alt"),
+    caption: t("carousel.edgenyc.caption"),
   },
   {
-    src: "/images/on_the_edge_nyc.jpg",
-    alt: t("carousel.photo3.alt"),
-    caption: t("carousel.photo3.caption"),
+    src: "/images/about/3_altopiano_marocco.jpg",
+    alt: t("carousel.morocco.alt"),
+    caption: t("carousel.morocco.caption"),
+  },
+  {
+    src: "/images/about/4_EC_Helsinki2019_1600px.jpg",
+    alt: t("carousel.helsinki2019.alt"),
+    caption: t("carousel.helsinki2019.caption"),
+  },
+  {
+    src: "/images/about/5_piedmont_travel.jpg",
+    alt: t("carousel.piedmont.alt"),
+    caption: t("carousel.piedmont.caption"),
   },
 ];
 
