@@ -108,7 +108,6 @@ const categoryIconMap: Record<string, React.ReactNode> = {
 
 export default function TechStackPage() {
   const t = useTranslations("cv");
-  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   // Group skills by category
@@ -125,27 +124,28 @@ export default function TechStackPage() {
   const sortedCategories = Object.keys(skillsByCategory).sort();
 
   // Animation variants
-  const container = {
-    hidden: { opacity: 0, height: 0 },
-    show: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        staggerChildren: 0.1,
-        height: { duration: 0.3 }
-      },
-    },
-  };
+  // const container = {
+  //   hidden: { opacity: 0, height: 0 },
+  //   show: {
+  //     opacity: 1,
+  //     height: "auto",
+  //     transition: {
+  //       staggerChildren: 0.1,
+  //       height: { duration: 0.3 }
+  //     },
+  //   },
+  // };
 
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
+  // const item = {
+  //   hidden: { opacity: 0, y: 20 },
+  //   show: { opacity: 1, y: 0 },
+  // };
   
-  const arrowVariants = {
-    initial: { rotate: 0 },
-    hover: { rotate: 180, transition: { duration: 0.3 } }
-  };
+  // const arrowVariants = {
+  //   initial: { rotate: 0 },
+  //   hover: { rotate: 180, transition: { duration: 0.3 } }
+  // };
+  
   return (
     <div className="max-w-3xl mx-auto">
       <motion.h1
