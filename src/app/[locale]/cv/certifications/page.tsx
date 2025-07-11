@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaCertificate, FaCalendarAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaCalendarAlt } from 'react-icons/fa';
 import Image from 'next/image';
 
 // Define the Certification type
