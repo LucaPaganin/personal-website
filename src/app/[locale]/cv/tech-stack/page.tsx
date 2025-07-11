@@ -5,22 +5,29 @@ import { motion } from "framer-motion";
 import {
   FaPython,
   FaJs,
-  FaReact,
   FaDocker,
   FaDatabase,
   FaCode,
   FaServer,
   FaTools,
+  FaReact,
+  FaCloud,
+  FaBook,
+  FaBrain
 } from "react-icons/fa";
 import {
-  SiTypescript,
   SiNextdotjs,
   SiFlask,
-  SiDjango,
   SiNumpy,
   SiPandas,
   SiScipy,
-  SiJinja
+  SiJinja,
+  SiCplusplus,
+  SiFastapi,
+  SiStreamlit,
+  SiOpenai,
+  SiFramework,
+  SiLangchain
 } from "react-icons/si";
 
 
@@ -38,37 +45,54 @@ interface Skill {
 const skills: Skill[] = [
   { name: "Python", category: "Languages", level: 5 },
   { name: "JavaScript", category: "Languages", level: 3 },
-  { name: "TypeScript", category: "Languages", level: 2 },
-  { name: "SQL", category: "Databases", level: 2 },
-  { name: "Azure Cosmos DB", category: "Databases", level: 4 },
+  { name: "C++", category: "Languages", level: 3 },
+  { name: "C#", category: "Languages", level: 2 },
+  { name: "PowerShell", category: "Languages", level: 3 },
   { name: "Docker", category: "Tools", level: 4 },
   { name: "Azure DevOps Pipelines", category: "Tools", level: 5 },
   { name: "Flask", category: "Frameworks", level: 3 },
-  { name: "React", category: "Frontend", level: 3 },
+  { name: "Tornado", category: "Frameworks", level: 3 },
+  { name: "FastAPI", category: "Frameworks", level: 3 },
   { name: "Next.js", category: "Frontend", level: 2 },
-  { name: "NumPy", category: "Libraries", level: 5 },
-  { name: "Pandas", category: "Libraries", level: 5 },
-  { name: "SciPy", category: "Libraries", level: 4 },
-  { name: "Jinja", category: "Libraries", level: 3 },
+  { name: "Streamlit", category: "Frontend", level: 4 },
+  { name: "React", category: "Frontend", level: 2 },
+  { name: "Jinja", category: "Frontend", level: 2 },
+  { name: "NumPy", category: "Libraries", level: 4 },
+  { name: "Pandas", category: "Libraries", level: 4 },
+  { name: "LangChain", category: "Libraries", level: 2 },
+  { name: "SciPy", category: "Libraries", level: 2 },
+  { name: "Azure Cosmos DB", category: "Cloud", level: 4 },
+  { name: "Azure Functions", category: "Cloud", level: 4 },
+  { name: "Azure App Services", category: "Cloud", level: 3 },
+  { name: "Azure Cognitive Services", category: "Cloud", level: 4 },
+  { name: "Azure OpenAI", category: "Cloud", level: 4 },
 ];
 
 // Map skill names to icons
 const skillIconMap: Record<string, React.ReactNode> = {
   Python: <FaPython />,
   JavaScript: <FaJs />,
-  TypeScript: <SiTypescript />,
-  SQL: <FaDatabase />,
+  "C++": <SiCplusplus />,
+  "C#": <FaCode />,
+  PowerShell: <FaCode />,
   Docker: <FaDocker />,
+  "Azure DevOps Pipelines": <FaTools />,
   Flask: <SiFlask />,
-  Django: <SiDjango />,
-  React: <FaReact />,
+  Tornado: <FaServer />,
+  FastAPI: <SiFastapi />,
   "Next.js": <SiNextdotjs />,
+  Streamlit: <SiStreamlit />,
+  React: <FaReact />,
+  Jinja: <SiJinja />,
   NumPy: <SiNumpy />,
   Pandas: <SiPandas />,
   SciPy: <SiScipy />,
-  Jinja: <SiJinja />,
+  LangChain: <SiLangchain />, // Assuming LangChain is represented by OpenAI icon
   "Azure Cosmos DB": <FaDatabase />,
-  "Azure DevOps Pipelines": <FaTools />,
+  "Azure Functions": <FaServer />,
+  "Azure App Services": <FaServer />,
+  "Azure Cognitive Services": <FaBrain />,
+  "Azure OpenAI": <SiOpenai />,
 };
 
 // Map category names to icons
@@ -76,14 +100,16 @@ const categoryIconMap: Record<string, React.ReactNode> = {
   Languages: <FaCode />,
   Databases: <FaDatabase />,
   Tools: <FaTools />,
-  Frameworks: <FaServer />,
   Frontend: <FaReact />,
-  Libraries: <FaCode />,
+  Libraries: <FaBook />,
+  Cloud: <FaCloud />,
+  Frameworks: <SiFramework />,
 };
 
 export default function TechStackPage() {
   const t = useTranslations("cv");
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   // Group skills by category
   const skillsByCategory = skills.reduce((acc, skill) => {
@@ -121,7 +147,7 @@ export default function TechStackPage() {
     hover: { rotate: 180, transition: { duration: 0.3 } }
   };
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-3xl mx-auto">
       <motion.h1
         className="text-4xl font-bold mb-8 text-center"
         initial={{ opacity: 0, y: -20 }}
@@ -129,66 +155,53 @@ export default function TechStackPage() {
         transition={{ duration: 0.5 }}
       >
         {t("techStack")}
-      </motion.h1>      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      </motion.h1>
+      <div className="flex flex-col gap-8">
         {sortedCategories.map((category) => (
           <motion.div
             key={category}
-            className="card bg-base-100 shadow-xl cursor-pointer"
+            className={`bg-base-100 shadow-xl rounded-lg p-6 transition-all duration-300 cursor-pointer ${expandedCategory === category ? 'scale-105 z-10' : ''}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            onMouseEnter={() => setHoveredCategory(category)}
-            onMouseLeave={() => setHoveredCategory(null)}
+            onMouseEnter={() => setExpandedCategory(category)}
+            onMouseLeave={() => setExpandedCategory(null)}
+            style={{ boxShadow: expandedCategory === category ? '0 8px 32px rgba(0,0,0,0.15)' : undefined }}
           >
-            <div className="card-body">
-              <div className="flex justify-between items-center">
-                <h2 className="card-title flex items-center">
-                  <span className="mr-2 text-2xl">
-                    {categoryIconMap[category] || <FaCode />}
-                  </span>
-                  {category}
-                </h2>                <motion.div
-                  variants={arrowVariants}
-                  initial="initial"
-                  animate={hoveredCategory === category ? "hover" : "initial"}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 15l7-7 7 7"
-                    />
-                  </svg>
-                </motion.div>
-              </div>
-
-              <motion.ul
-                className="mt-4 space-y-4 overflow-hidden"
-                variants={container}
-                initial="hidden"
-                animate={hoveredCategory === category ? "show" : "hidden"}
-              >
-                {skillsByCategory[category]
-                  .sort((a, b) => b.level - a.level) // Sort by level (highest first)
-                  .map((skill) => (
-                    <motion.li key={skill.name} variants={item}>
-                      <div className="flex items-center mb-1">
-                        <span className="text-xl mr-2 ml-4">
-                          {skillIconMap[skill.name] || <FaCode />}
-                        </span>
-                        <span className="font-medium">{skill.name}</span>
-                      </div>
-                    </motion.li>
-                  ))}
-              </motion.ul>
+            <div className="flex items-center mb-4 border-b pb-2">
+              <span className="mr-2 text-2xl">
+                {categoryIconMap[category] || <FaCode />}
+              </span>
+              <h2 className="text-2xl font-semibold">{category}</h2>
             </div>
+            <motion.ul
+              className="space-y-2"
+              initial={{ opacity: 0, height: 0 }}
+              animate={expandedCategory === category ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              style={{ overflow: 'hidden' }}
+            >
+              {skillsByCategory[category]
+                .sort((a, b) => b.level - a.level)
+                .map((skill) => (
+                  <li key={skill.name} className="flex items-center">
+                    <span className="text-xl mr-3 ml-2">
+                      {skillIconMap[skill.name] || <FaCode />}
+                    </span>
+                    <span className="font-medium mr-2">{skill.name}</span>
+                    <div className="flex-1 flex justify-end ml-2">
+                      <div className="relative h-3 bg-gray-200 rounded-full overflow-hidden w-32">
+                        <motion.div
+                          className="absolute left-0 top-0 h-full bg-blue-500 rounded-full"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${(skill.level / 5) * 100}%` }}
+                          transition={{ duration: 0.6 }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+                ))}
+            </motion.ul>
           </motion.div>
         ))}
       </div>
