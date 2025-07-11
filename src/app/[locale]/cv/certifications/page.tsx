@@ -18,7 +18,7 @@ interface Certification {
 // Hardcoded certifications data
 const certifications: Certification[] = [
   {
-    name: "Microsoft Certified: Azure Fundamentals (AZ-900",
+    name: "Microsoft Certified: Azure Fundamentals (AZ-900)",
     issuer: "Microsoft",
     date: "2025-02-21",
     credentialUrl: "https://learn.microsoft.com/en-us/users/lucapaganin-4094/credentials/certification/azure-fundamentals?tab=credentials-tab",
